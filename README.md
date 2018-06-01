@@ -32,6 +32,9 @@ comparison to installing any other Hass.io add-on.
 
 1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
 1. Install the "Node-RED" add-on.
+1. Set a `credential_secret`, which is used to encrypt sensitive data.
+1. Enable SSL, if you are planning on using that.
+1. Configure usernames & passwords.
 1. Start the "Node-RED" add-on.
 1. Check the logs of "Node-RED" to see if everything went well.
 
@@ -71,7 +74,7 @@ Example add-on configuration:
 ```json
 {
   "log_level": "info",
-  "credential_secret": "",
+  "credential_secret": "KJHhfdhiFRENCKfsdfdsDHFHDJS",
   "users": [
     {
       "username": "frenck",
@@ -181,6 +184,9 @@ A user has the following properties:
 Permissions can be `*` or `read`. We are planning to support a more finegrained
 control over permissions in future releases of the add-on.
 
+**Note**: _When there are not users configured, authentication will be
+disabled completely. This is NOT recommended._
+
 ### Option: `http_node`
 
 To password protect the node-defined HTTP endpoints (httpNodeRoot),
@@ -223,10 +229,6 @@ for the add-on._
 Customize your Node-RED environment even more with the `init_commands` option.
 Add one or more shell commands to the list, and they will be executed every
 single time this add-on starts.
-
-## Known issues and limitations
-
-- Lorem ipsum
 
 ## Changelog & Releases
 
