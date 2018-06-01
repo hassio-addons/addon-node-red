@@ -17,8 +17,8 @@ config.credentialSecret = options.credential_secret;
 // Set SSL if enabled
 if (options.ssl === true) {
     config.https = {
-        key: `/ssl/${options.keyfile}`,
-        cert: `/ssl/${options.certfile}`,
+        key: fs.readFileSync(`/ssl/${options.keyfile}`),
+        cert: fs.readFileSync(`/ssl/${options.certfile}`),
     };
     config.requireHttps = options.require_ssl;
 }

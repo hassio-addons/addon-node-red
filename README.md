@@ -84,7 +84,7 @@ Example add-on configuration:
     {
       "username": "MarryPoppins",
       "password": "Supercalifragilisticexpialidocious",
-      "permissions": "READ"
+      "permissions": "read"
     }
   ],
   "http_node": {
@@ -184,7 +184,7 @@ A user has the following properties:
 Permissions can be `*` or `read`. We are planning to support a more finegrained
 control over permissions in future releases of the add-on.
 
-**Note**: _When there are not users configured, authentication will be
+**Note**: _When there are no users configured, authentication will be
 disabled completely. This is NOT recommended._
 
 ### Option: `http_node`
