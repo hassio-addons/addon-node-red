@@ -10,6 +10,8 @@ if hass.config.has_value 'npm_packages'; then
     apk update \
         || hass.die 'Failed updating Alpine packages repository indexes'
 
+    cd /opt || hass.die "Could not change directory to Node-RED"
+
     for package in $(hass.config.get 'npm_packages'); do
         npm install "$package" \
             || hass.die "Failed installing npm package ${package}"
