@@ -1,0 +1,1 @@
+[{"id":"%%ID%%","type":"server","z":"","name":"Home Assistant","url":"http://hassio/homeassistant","pass":"%%TOKEN%%"}]

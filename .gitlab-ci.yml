@@ -1,0 +1,332 @@
+---
+image: docker:stable
+
+variables:
+  ADDON_GITHUB_REPO: hassio-addons/addon-node-red
+  ADDON_SLUG: node-red
+  ADDON_TARGET: node-red
+  DOCKER_DRIVER: overlay2
+  DOCKER_HUB_ORG: hassioaddons
+
+stages:
+  - preflight
+  - build
+  - scan
+  - deploy
+  - publish
+
+# Generic DIND template
+.dind: &dind
+  before_script:
+    - docker info
+    - docker login -u gitlab-ci-token -p "${CI_JOB_TOKEN}" registry.gitlab.com
+  services:
+    - docker:dind
+
+# Generic preflight template
+.preflight: &preflight
+  stage: preflight
+  tags:
+    - preflight
+
+# Generic build template
+.build: &build
+  <<: *dind
+  stage: build
+  script:
+    - |
+      docker run \
+        --privileged \
+        --volume /var/run/docker.sock:/var/run/docker.sock \
+        --volume "$PWD":/docker \
+        hassioaddons/build-env:latest \
+          --image "addon" \
+          --cache-from "${DOCKER_HUB_ORG}/${ADDON_SLUG}-${ADDON_ARCH}" \
+          --cache-tag "test" \
+          --git-url "https://github.com/${ADDON_GITHUB_REPO}" \
+          --target "${ADDON_TARGET}" \
+          --tag-latest \
+          --git \
+          --${ADDON_ARCH}
+    - |
+      docker tag \
+        "addon:latest" \
+        "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}"
+    - |
+      docker push \
+        "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}"
+  tags:
+    - build
+
+# Generic scan template
+.scan: &scan
+  <<: *dind
+  stage: scan
+  allow_failure: true
+  before_script:
+    - docker info
+    - docker run -d --name db arminc/clair-db:latest
+    - docker run -p 6060:6060 --link db:postgres -d --name clair arminc/clair-local-scan:v2.0.1
+    - apk add -U curl ca-certificates
+    - |
+      curl \
+        --silent \
+        --show-error \
+        --location \
+        --fail \
+        --retry 3 \
+        --output /usr/bin/clair-scanner \
+        https://github.com/arminc/clair-scanner/releases/download/v8/clair-scanner_linux_amd64
+    - chmod +x /usr/bin/clair-scanner
+    - touch clair-whitelist.yml
+    - echo "Waiting for Clair to start"
+    - |
+      while ! nc -z docker 6060; do
+        sleep 1
+        WAIT=$((${WAIT} + 1))
+        if [ "${WAIT}" -gt 30 ]; then
+          echo "Error > Timeout waiting for Clair to start"
+          exit 1
+        fi
+      done
+    - docker pull "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}"
+  script:
+    - |
+      clair-scanner \
+        -c http://docker:6060 \
+        --ip $(hostname -i) \
+        -w clair-whitelist.yml \
+        "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}"
+  tags:
+    - scan
+
+# Generic deploy template
+.deploy: &deploy
+  <<: *dind
+  stage: deploy
+  before_script:
+    - docker info
+    - docker login -u gitlab-ci-token -p "${CI_JOB_TOKEN}" registry.gitlab.com
+    - docker pull "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}"
+    - docker pull hassioaddons/build-env:latest
+  script:
+    - |
+      docker run \
+        --privileged \
+        --volume /var/run/docker.sock:/var/run/docker.sock \
+        --volume "$PWD":/docker \
+        hassioaddons/build-env:latest \
+          --image "${DOCKER_HUB_ORG}/${ADDON_SLUG}-${ADDON_ARCH}" \
+          --cache-from "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}" \
+          --cache-tag "${CI_COMMIT_SHA}" \
+          --git-url "https://github.com/${ADDON_GITHUB_REPO}" \
+          --target "${ADDON_TARGET}" \
+          --login "${DOCKER_LOGIN}" \
+          --password "${DOCKER_PASSWORD}" \
+          --git \
+          --push \
+          --${ADDON_ARCH}
+  tags:
+    - deploy
+
+# Generic publish template
+.publish: &publish
+  stage: publish
+  image:
+    name: hassioaddons/repository-updater:latest
+    entrypoint: [""]
+  script:
+    - |
+      repository-updater \
+        --token "${GITHUB_TOKEN}" \
+        --repository "${REPOSITORY}" \
+        --addon "${ADDON_GITHUB_REPO}"
+  tags:
+    - publish
+
+# Preflight jobs
+hadolint:
+  <<: *preflight
+  image: hadolint/hadolint:latest
+  before_script:
+    - hadolint --version
+  script:
+    - hadolint "${ADDON_TARGET}/Dockerfile"
+
+shellcheck:
+  <<: *preflight
+  image:
+    name: koalaman/shellcheck-alpine:stable
+    entrypoint: [""]
+  before_script:
+    - shellcheck --version
+    - apk --no-cache add grep
+    - |
+      find . -type f -print0 | \
+        xargs -0 sed -i 's:#!/usr/bin/with-contenv bash:#!/bin/bash:g'
+  script:
+    - |
+      for file in $(grep -IRl "#\!\(/usr/bin/env \|/bin/\)" --exclude-dir ".git" "${ADDON_TARGET}"); do
+        if ! shellcheck $file; then
+          export FAILED=1
+        else
+          echo "$file OK"
+        fi
+      done
+      if [ "${FAILED}" = "1" ]; then
+        exit 1
+      fi
+
+yamllint:
+  <<: *preflight
+  image: sdesbure/yamllint
+  before_script:
+    - yamllint --version
+  script:
+    - yamllint .
+
+jsonlint:
+  <<: *preflight
+  image: sahsu/docker-jsonlint
+  before_script:
+    - jsonlint --version || true
+  script:
+    - |
+      for file in $(find . -type f -name "*.json"); do
+        if ! jsonlint -q $file; then
+          export FAILED=1
+        else
+          echo "$file OK"
+        fi
+      done
+      if [ "${FAILED}" = "1" ]; then
+        exit 1
+      fi
+
+markdownlint:
+  <<: *preflight
+  image:
+    name: ruby:alpine
+    entrypoint: [""]
+  before_script:
+    - gem install mdl
+    - mdl --version
+  script:
+    - mdl --style all --warnings .
+
+# Build jobs
+build:armhf:
+  <<: *build
+  variables:
+    ADDON_ARCH: armhf
+
+build:aarch64:
+  <<: *build
+  variables:
+    ADDON_ARCH: aarch64
+
+build:i386:
+  <<: *build
+  variables:
+    ADDON_ARCH: i386
+
+build:amd64:
+  <<: *build
+  variables:
+    ADDON_ARCH: amd64
+
+# Scan jobs
+clair:armhf:
+  <<: *scan
+  variables:
+    ADDON_ARCH: armhf
+
+clair:aarch64:
+  <<: *scan
+  variables:
+    ADDON_ARCH: aarch64
+
+clair:i386:
+  <<: *scan
+  variables:
+    ADDON_ARCH: i386
+
+clair:amd64:
+  <<: *scan
+  variables:
+    ADDON_ARCH: amd64
+
+# Deploy jobs
+deploy:armhf:
+  <<: *deploy
+  variables:
+    ADDON_ARCH: armhf
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
+  except:
+    - /^(?!master).+@/
+
+deploy:aarch64:
+  <<: *deploy
+  variables:
+    ADDON_ARCH: aarch64
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
+  except:
+    - /^(?!master).+@/
+
+deploy:i386:
+  <<: *deploy
+  variables:
+    ADDON_ARCH: i386
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
+  except:
+    - /^(?!master).+@/
+
+deploy:amd64:
+  <<: *deploy
+  variables:
+    ADDON_ARCH: amd64
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
+  except:
+    - /^(?!master).+@/
+
+# Publish jobs
+stable:
+  <<: *publish
+  variables:
+    REPOSITORY: hassio-addons/repository
+  only:
+    - /^v\d+\.\d+\.\d+(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?$/
+  except:
+    - /^(?!master).+@/
+  environment:
+    name: stable
+
+beta:
+  <<: *publish
+  variables:
+    REPOSITORY: hassio-addons/repository-beta
+  only:
+    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
+  except:
+    - /^(?!master).+@/
+  environment:
+    name: beta
+
+edge:
+  <<: *publish
+  variables:
+    REPOSITORY: hassio-addons/repository-edge
+  only:
+    - master
+  except:
+    - /^(?!master).+@/
+  environment:
+    name: edge

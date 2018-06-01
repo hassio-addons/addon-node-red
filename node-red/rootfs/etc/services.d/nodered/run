@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv bash
+# ==============================================================================
+# Community Hass.io Add-ons: Node-RED
+# Starts Node-RED
+# ==============================================================================
+# shellcheck disable=SC1091
+source /usr/lib/hassio-addons/base.sh
+
+export NODE_PATH=/opt/node_modules:/data/node_modules
+declare -a options
+
+options+=(--settings "/etc/node-red/config.js")
+
+cd /opt || hass.die "Could not change directory to Node-RED"
+
+exec npm start -- "${options[@]}"
