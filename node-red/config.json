@@ -22,11 +22,7 @@
   ],
   "options": {
     "log_level": "info",
-    "port": 1880,
-    "ssl": false,
-    "certfile": "fullchain.pem",
-    "keyfile": "privkey.pem",
-    "require_ssl": true,
+    "credential_secret": "",
     "users": [
       {
         "username": "MarryPoppins",
@@ -42,17 +38,18 @@
       "username": "MarryPoppins",
       "password": "Supercalifragilisticexpialidocious"
     },
+    "port": 1880,
+    "ssl": false,
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem",
+    "require_ssl": true,
     "system_packages": [],
-    "node_packages": [],
+    "npm_packages": [],
     "init_commands": []
   },
   "schema": {
     "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
-    "port": "port",
-    "ssl": "bool",
-    "certfile": "str",
-    "keyfile": "str",
-    "require_ssl": "bool",
+    "credential_secret": "str",
     "users": [
       {
         "username": "str",
@@ -68,6 +65,11 @@
       "username": "str",
       "password": "str"
     },
+    "port": "port",
+    "ssl": "bool",
+    "certfile": "str",
+    "keyfile": "str",
+    "require_ssl": "bool",
     "system_packages": ["str"],
     "npm_packages": ["str"],
     "init_commands": ["str"]
