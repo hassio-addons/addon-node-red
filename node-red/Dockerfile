@@ -19,17 +19,6 @@ RUN \
         --no-optional \
         --only=production \
     \
-    && npm -g install \
-        --no-optional \
-        modclean@3.0.0-beta.1 \
-    \
-    && modclean \
-        --path /opt \
-        --no-progress \
-        --keep-empty \
-        --run \
-    \
-    && npm -g uninstall modclean \
     && npm cache clear --force
 
 # Copy root filesystem
