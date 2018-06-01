@@ -70,7 +70,43 @@ Example add-on configuration:
 
 ```json
 {
-  "log_level": "info"
+  "log_level": "info",
+  "credential_secret": "",
+  "users": [
+    {
+      "username": "frenck",
+      "password": "yeah... I don't think so",
+      "permissions": "*"
+    },
+    {
+      "username": "MarryPoppins",
+      "password": "Supercalifragilisticexpialidocious",
+      "permissions": "READ"
+    }
+  ],
+  "http_node": {
+    "username": "MarryPoppins",
+    "password": "Supercalifragilisticexpialidocious"
+  },
+  "http_static": {
+    "username": "MarryPoppins",
+    "password": "Supercalifragilisticexpialidocious"
+  },
+  "port": 1880,
+  "ssl": true,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "require_ssl": true,
+  "system_packages": [
+    "ffmpeg"
+  ],
+  "node_packages": [
+    "node-red-admin"
+  ],
+  "init_commands": [
+    "echo 'This is a test'",
+    "echo 'So is this...'"
+  ]
 }
 ```
 
@@ -93,6 +129,100 @@ Please note that each level automatically includes log messages from a
 more severe level, e.g., `debug` also shows `info` messages. By default,
 the `log_level` is set to `info`, which is the recommended setting unless
 you are troubleshooting.
+
+### Option: `port`
+
+The default port for Node-RED is `1880`, but sometimes you'd just like to
+have it on another port, right? Remember, if you change to port,
+be sure it is not in use by something else already!
+
+### Option: `ssl`
+
+Enables/Disables SSL (HTTPS) on the web interface.
+Set it `true` to enable it, `false` otherwise.
+
+### Option: `certfile`
+
+The certificate file to use for SSL.
+
+**Note**: _The file MUST be stored in `/ssl/`, which is the default for Hass.io_
+
+### Option: `keyfile`
+
+The private key file to use for SSL.
+
+**Note**: _The file MUST be stored in `/ssl/`, which is the default for Hass.io_
+
+### Option: `require_ssl`
+
+This options can be used to cause insecure HTTP connections to be redirected
+to HTTPS. This is recommended when you have SSL enabled.
+
+### Option: `credential_secret`
+
+Credentials are encrypted by Node-RED in storage, using secret key.
+This option allows you to specify your secret key.
+
+**Note**: _Once you set this property, do not change it - doing so will prevent
+Node-RED from being able to decrypt your existing credentials and they will be
+lost._
+
+### Option: `users`
+
+This option can be used to password protect the Node-RED editor and admin API.
+Password protecting your setup is, of course, strongly recommended.
+
+A user has the following properties:
+
+- `username`
+- `password`
+- `permissions`
+
+Permissions can be `*` or `read`. We are planning to support a more finegrained
+control over permissions in future releases of the add-on.
+
+### Option: `http_node`
+
+To password protect the node-defined HTTP endpoints (httpNodeRoot),
+the following properties can be used:
+
+- `username`
+- `password`
+
+**Note**: _Leaving the `username` field empty, will disable authentication._
+
+### Option: `http_static`
+
+To password protect tthe static content (httpStatic), the following
+properties can be used:
+
+- `username`
+- `password`
+
+**Note**: _Leaving the `username` field empty, will disable authentication._
+
+### Option: `system_packages`
+
+Allows you to specify additional [Alpine packages][alpine-packages] to be
+installed to your Node-RED setup (e.g., `g++`. `make`, `ffmpeg`).
+
+**Note**: _Adding many packages will result in a longer start-up time
+for the add-on._
+
+### Option: `node_packages`
+
+Allows you to specify additional [NPM packages][npm-packages] or
+[Node-RED nodes][node-red-nodes] to be installed to your Node-RED setup
+(e.g., `node-red-dashboard`, `node-red-contrib-ccu`).
+
+**Note**: _Adding many packages will result in a longer start-up time
+for the add-on._
+
+### Option: `init_commands`
+
+Customize your Node-RED environment even more with the `init_commands` option.
+Add one or more shell commands to the list, and they will be executed every
+single time this add-on starts.
 
 ## Known issues and limitations
 
@@ -182,7 +312,6 @@ SOFTWARE.
 [aarch64-microbadger]: https://microbadger.com/images/hassioaddons/node-red-aarch64
 [aarch64-pulls-shield]: https://img.shields.io/docker/pulls/hassioaddons/node-red-aarch64.svg
 [aarch64-version-shield]: https://images.microbadger.com/badges/version/hassioaddons/node-red-aarch64.svg
-[alpine-packages]: https://pkgs.alpinelinux.org/
 [amd64-anchore-shield]: https://anchore.io/service/badges/image/2b9a78e147678b80fc0e8c63537c669b803f605555d055fba8fe5bd01a5ea60c
 [amd64-anchore]: https://anchore.io/image/dockerhub/hassioaddons%2Fnode-red-amd64%3Alatest
 [amd64-arch-shield]: https://img.shields.io/badge/architecture-amd64-blue.svg
@@ -232,3 +361,6 @@ SOFTWARE.
 [releases]: https://github.com/hassio-addons/addon-node-red/releases
 [repository]: https://github.com/hassio-addons/repository
 [semver]: http://semver.org/spec/v2.0.0.htm
+[alpine-packages]: https://pkgs.alpinelinux.org/packages
+[npm-packages]: https://www.npmjs.com
+[node-red-nodes]: https://flows.nodered.org/?type=node&num_pages=1
