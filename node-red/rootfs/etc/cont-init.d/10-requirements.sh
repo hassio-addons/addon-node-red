@@ -6,6 +6,11 @@
 # shellcheck disable=SC1091
 source /usr/lib/hassio-addons/base.sh
 
+# Ensure the credential secret value is set
+if ! hass.config.has_value 'credential_secret'; then
+    hass.die 'Setting a credential_secret is REQUIRED!'
+fi
+
 # Check SSL requirements, if enabled
 if hass.config.true 'ssl'; then
     if ! hass.config.has_value 'certfile'; then
