@@ -32,12 +32,12 @@
       }
     ],
     "http_node": {
-      "username": "MarryPoppins",
-      "password": "Supercalifragilisticexpialidocious"
+      "username": "",
+      "password": ""
     },
     "http_static": {
-      "username": "MarryPoppins",
-      "password": "Supercalifragilisticexpialidocious"
+      "username": "",
+      "password": ""
     },
     "port": 1880,
     "ssl": false,

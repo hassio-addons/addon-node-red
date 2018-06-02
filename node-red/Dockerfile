@@ -12,8 +12,11 @@ WORKDIR /opt
 RUN \
     apk add --no-cache \
         git=2.15.2-r0 \
-        nodejs=8.9.3-r1 \
         nodejs-npm=8.9.3-r1 \
+        nodejs=8.9.3-r1 \
+        paxctl=0.9-r0 \
+    \
+    && paxctl -cm "$(which node)" \
     \
     && npm install \
         --no-optional \
