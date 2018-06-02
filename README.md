@@ -16,6 +16,8 @@
 
 Flow-based programming for the Internet of Things.
 
+![Node-RED in the Home Assistant Frontend](images/screenshot.png)
+
 ## About
 
 Node-RED is a programming tool for wiring together hardware devices,
