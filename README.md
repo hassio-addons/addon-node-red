@@ -23,7 +23,7 @@ APIs and online services in new and interesting ways.
 
 It provides a browser-based editor that makes it easy to wire together flows
 using the wide range of nodes in the palette that can be deployed to its
-runtime in a single-click.
+runtime in a single click.
 
 ## Installation
 
@@ -33,8 +33,8 @@ comparison to installing any other Hass.io add-on.
 1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
 1. Install the "Node-RED" add-on.
 1. Set a `credential_secret`, which is used to encrypt sensitive data.
-1. Enable SSL, if you are planning on using that.
 1. Configure usernames & passwords.
+1. If you have SSL, set the `ssl` option to true.
 1. Start the "Node-RED" add-on.
 1. Check the logs of "Node-RED" to see if everything went well.
 
@@ -181,7 +181,7 @@ A user has the following properties:
 - `password`
 - `permissions`
 
-Permissions can be `*` or `read`. We are planning to support a more finegrained
+Permissions can be `*` or `read`. We are planning to support a more fine-grained
 control over permissions in future releases of the add-on.
 
 **Note**: _When there are no users configured, authentication will be
@@ -199,7 +199,7 @@ the following properties can be used:
 
 ### Option: `http_static`
 
-To password protect tthe static content (httpStatic), the following
+To password protect the static content (httpStatic), the following
 properties can be used:
 
 - `username`
@@ -229,6 +229,23 @@ for the add-on._
 Customize your Node-RED environment even more with the `init_commands` option.
 Add one or more shell commands to the list, and they will be executed every
 single time this add-on starts.
+
+## Embedding into Home Assistant
+
+It is possible to embed the Node-RED interface directly into
+Home Assistant, allowing you to access it through the Home Assistant frontend.
+
+Home Assistant provides the `panel_iframe` component, for these purposes.
+
+Example configuration:
+
+```yaml
+panel_iframe:
+  nodered:
+    title: Node-RED
+    icon: mdi:sitemap
+    url: http://addres.to.your.hass.io:1880
+```
 
 ## Changelog & Releases
 
