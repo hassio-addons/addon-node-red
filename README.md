@@ -1,5 +1,7 @@
 # Community Hass.io Add-ons: Node-RED
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hassio-addons/addon-node-red.svg)](https://greenkeeper.io/)
+
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
 [![License][license-shield]](LICENSE.md)
