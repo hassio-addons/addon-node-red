@@ -7,8 +7,6 @@
 source /usr/lib/hassio-addons/base.sh
 
 if hass.config.has_value 'npm_packages'; then
-    cd /opt || hass.die "Could not change directory to Node-RED"
-
     for package in $(hass.config.get 'npm_packages'); do
         npm install \
             --no-optional \

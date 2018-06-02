@@ -11,6 +11,4 @@ declare -a options
 
 options+=(--settings "/etc/node-red/config.js")
 
-cd /opt || hass.die "Could not change directory to Node-RED"
-
 exec npm start -- "${options[@]}"
