@@ -1,0 +1,9 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "node-red/package.json"
+      ]
+    }
+  }
+}
