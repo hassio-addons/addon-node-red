@@ -107,7 +107,7 @@ Example add-on configuration:
   "system_packages": [
     "ffmpeg"
   ],
-  "node_packages": [
+  "npm_packages": [
     "node-red-admin"
   ],
   "init_commands": [
@@ -219,7 +219,7 @@ installed to your Node-RED setup (e.g., `g++`. `make`, `ffmpeg`).
 **Note**: _Adding many packages will result in a longer start-up time
 for the add-on._
 
-### Option: `node_packages`
+### Option: `npm_packages`
 
 Allows you to specify additional [NPM packages][npm-packages] or
 [Node-RED nodes][node-red-nodes] to be installed to your Node-RED setup
