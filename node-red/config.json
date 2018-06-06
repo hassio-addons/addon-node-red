@@ -19,6 +19,7 @@
   "privileged": [],
   "map": [
     "config:rw",
+    "share:rw",
     "ssl"
   ],
   "options": {
