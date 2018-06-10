@@ -1,5 +1,5 @@
 ---
-image: docker:stable
+image: docker:latest
 
 variables:
   ADDON_GITHUB_REPO: hassio-addons/addon-node-red
@@ -13,15 +13,16 @@ stages:
   - build
   - scan
   - deploy
+  - manifest
   - publish
 
 # Generic DIND template
 .dind: &dind
   before_script:
     - docker info
-    - docker login -u gitlab-ci-token -p "${CI_JOB_TOKEN}" registry.gitlab.com
   services:
-    - docker:dind
+    - name: docker:dind
+      command: ["--experimental"]
 
 # Generic preflight template
 .preflight: &preflight
@@ -33,30 +34,33 @@ stages:
 .build: &build
   <<: *dind
   stage: build
+  before_script:
+    - docker info
+    - |
+      if [ "$(apk --print-arch)" = "amd64" ]; then
+        docker run --rm --privileged hassioaddons/qemu-user-static:latest
+      fi
+    - |
+      echo "${CI_JOB_TOKEN}" | docker login \
+        --username gitlab-ci-token \
+        --password-stdin \
+        registry.gitlab.com
+    - docker pull "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:cache" || true
   script:
     - |
-      docker run \
-        --privileged \
-        --volume /var/run/docker.sock:/var/run/docker.sock \
-        --volume "$PWD":/docker \
-        hassioaddons/build-env:latest \
-          --image "addon" \
-          --cache-from "${DOCKER_HUB_ORG}/${ADDON_SLUG}-${ADDON_ARCH}" \
-          --cache-tag "test" \
-          --git-url "https://github.com/${ADDON_GITHUB_REPO}" \
-          --target "${ADDON_TARGET}" \
-          --tag-latest \
-          --git \
-          --${ADDON_ARCH}
-    - |
-      docker tag \
-        "addon:latest" \
-        "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}"
+      docker build \
+        --build-arg "BUILD_FROM=${FROM}" \
+        --build-arg "BUILD_DATE=$(date +"%Y-%m-%dT%H:%M:%SZ")" \
+        --build-arg "BUILD_ARCH=${ADDON_ARCH}" \
+        --build-arg "BUILD_REF=${CI_COMMIT_SHA}" \
+        --build-arg "BUILD_VERSION=${CI_COMMIT_TAG:-${CI_COMMIT_SHA:0:7}}" \
+        --cache-from "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:cache" \
+        --tag \
+          "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}" \
+        "${ADDON_TARGET}"
     - |
       docker push \
         "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}"
-  tags:
-    - build
 
 # Generic scan template
 .scan: &scan
@@ -106,28 +110,103 @@ stages:
   stage: deploy
   before_script:
     - docker info
-    - docker login -u gitlab-ci-token -p "${CI_JOB_TOKEN}" registry.gitlab.com
     - docker pull "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}"
-    - docker pull hassioaddons/build-env:latest
+    - |
+      echo "${CI_JOB_TOKEN}" | docker login \
+        --username gitlab-ci-token \
+        --password-stdin \
+        registry.gitlab.com
+    - |
+      echo "${DOCKER_PASSWORD}" | docker login \
+        --username "${DOCKER_LOGIN}" \
+        --password-stdin
   script:
     - |
-      docker run \
-        --privileged \
-        --volume /var/run/docker.sock:/var/run/docker.sock \
-        --volume "$PWD":/docker \
-        hassioaddons/build-env:latest \
-          --image "${DOCKER_HUB_ORG}/${ADDON_SLUG}-${ADDON_ARCH}" \
-          --cache-from "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}" \
-          --cache-tag "${CI_COMMIT_SHA}" \
-          --git-url "https://github.com/${ADDON_GITHUB_REPO}" \
-          --target "${ADDON_TARGET}" \
-          --login "${DOCKER_LOGIN}" \
-          --password "${DOCKER_PASSWORD}" \
-          --git \
-          --push \
-          --${ADDON_ARCH}
+      docker tag \
+        "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}" \
+        "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:cache"
+    - docker push "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:cache"
+    - TAG="${CI_COMMIT_TAG#v}"
+    - TAG="${TAG:-${CI_COMMIT_SHA:0:7}}"
+    - |
+      docker tag \
+        "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:${ADDON_ARCH}-${TAG}"
+    - |
+      docker push \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:${ADDON_ARCH}-${TAG}"
+    - |
+      docker tag \
+        "registry.gitlab.com/${CI_PROJECT_PATH}/${ADDON_ARCH}:${CI_COMMIT_SHA}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}-${ADDON_ARCH}:${TAG}"
+    - |
+      docker push \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}-${ADDON_ARCH}:${TAG}"
   tags:
     - deploy
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
+  except:
+    - /^(?!master).+@/
+
+# Generic manifest template
+.manifest: &manifest
+  <<: *dind
+  stage: manifest
+  before_script:
+    - mkdir -p ~/.docker
+    - echo '{"experimental":"enabled"}' > ~/.docker/config.json
+    - docker info
+    - |
+      echo "${DOCKER_PASSWORD}" | docker login \
+        --username "${DOCKER_LOGIN}" \
+        --password-stdin
+  script:
+    - TAG="${TAG#v}"
+    - TAG="${TAG:-${CI_COMMIT_SHA:0:7}}"
+    - REF="${CI_COMMIT_TAG#v}"
+    - REF="${REF:-${CI_COMMIT_SHA:0:7}}"
+    - |
+      docker manifest create \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:${TAG}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:aarch64-${REF}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:amd64-${REF}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:armhf-${REF}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:i386-${REF}"
+    - |
+      docker manifest annotate \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:${TAG}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:aarch64-${REF}" \
+        --os=linux \
+        --arch=arm64 \
+        --variant=v8
+    - |
+      docker manifest annotate \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:${TAG}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:amd64-${REF}" \
+        --os=linux \
+        --arch=amd64
+    - |
+      docker manifest annotate \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:${TAG}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:armhf-${REF}" \
+        --os=linux \
+        --arch=arm \
+        --variant=v6
+    - |
+      docker manifest annotate \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:${TAG}" \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:i386-${REF}" \
+        --os=linux \
+        --arch=386
+    - |
+      docker manifest push \
+        "${DOCKER_HUB_ORG}/${ADDON_SLUG}:${TAG}"
+  tags:
+    - manifest
+  except:
+    - /^(?!master).+@/
 
 # Generic publish template
 .publish: &publish
@@ -143,6 +222,8 @@ stages:
         --addon "${ADDON_GITHUB_REPO}"
   tags:
     - publish
+  except:
+    - /^(?!master).+@/
 
 # Preflight jobs
 hadolint:
@@ -214,26 +295,42 @@ markdownlint:
   script:
     - mdl --style all --warnings .
 
-# Build jobs
+# Build Jobs
 build:armhf:
   <<: *build
   variables:
     ADDON_ARCH: armhf
+    FROM: hassioaddons/base-armhf:1.3.3
+  tags:
+    - build
+    - armhf
 
 build:aarch64:
   <<: *build
   variables:
     ADDON_ARCH: aarch64
+    FROM: hassioaddons/base-aarch64:1.3.3
+  tags:
+    - build
+    - aarch64
 
 build:i386:
   <<: *build
   variables:
     ADDON_ARCH: i386
+    FROM: hassioaddons/base-i386:1.3.3
+  tags:
+    - build
+    - i386
 
 build:amd64:
   <<: *build
   variables:
     ADDON_ARCH: amd64
+    FROM: hassioaddons/base-amd64:1.3.3
+  tags:
+    - build
+    - amd64
 
 # Scan jobs
 clair:armhf:
@@ -261,72 +358,80 @@ deploy:armhf:
   <<: *deploy
   variables:
     ADDON_ARCH: armhf
-  only:
-    - master
-    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
-  except:
-    - /^(?!master).+@/
 
 deploy:aarch64:
   <<: *deploy
   variables:
     ADDON_ARCH: aarch64
-  only:
-    - master
-    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
-  except:
-    - /^(?!master).+@/
 
 deploy:i386:
   <<: *deploy
   variables:
     ADDON_ARCH: i386
-  only:
-    - master
-    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
-  except:
-    - /^(?!master).+@/
 
 deploy:amd64:
   <<: *deploy
   variables:
     ADDON_ARCH: amd64
+
+# Manifest jobs
+manifest:sha:
+  <<: *manifest
   only:
     - master
+
+manifest:version:
+  <<: *manifest
+  variables:
+    TAG: "${CI_COMMIT_TAG}"
+  only:
     - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
-  except:
-    - /^(?!master).+@/
+
+manifest:stable:
+  <<: *manifest
+  variables:
+    TAG: latest
+  only:
+    - /^v\d+\.\d+\.\d+(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?$/
+
+manifest:beta:
+  <<: *manifest
+  variables:
+    TAG: beta
+  only:
+    - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
+
+manifest:edge:
+  <<: *manifest
+  variables:
+    TAG: edge
+  only:
+    - master
 
 # Publish jobs
-stable:
+publish:stable:
   <<: *publish
   variables:
     REPOSITORY: hassio-addons/repository
   only:
     - /^v\d+\.\d+\.\d+(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?$/
-  except:
-    - /^(?!master).+@/
   environment:
     name: stable
 
-beta:
+publish:beta:
   <<: *publish
   variables:
     REPOSITORY: hassio-addons/repository-beta
   only:
     - /^v\d+\.\d+\.\d+(?:-(?:beta|rc)(?:(?:(?:\+|\.)?[a-zA-Z0-9]+)*)?)?$/
-  except:
-    - /^(?!master).+@/
   environment:
     name: beta
 
-edge:
+publish:edge:
   <<: *publish
   variables:
     REPOSITORY: hassio-addons/repository-edge
   only:
     - master
-  except:
-    - /^(?!master).+@/
   environment:
     name: edge
