@@ -16,6 +16,7 @@
   "hassio_api": true,
   "homeassistant_api": true,
   "host_network": true,
+  "auto_uart": true,
   "privileged": [],
   "map": [
     "config:rw",
