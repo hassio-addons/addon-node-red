@@ -11,7 +11,7 @@ WORKDIR /opt
 # Setup base
 RUN \
     apk add --no-cache \
-        git=2.15.2-r0 \
+        git=2.18.0-r0 \
         nodejs-npm=8.9.3-r1 \
         nodejs=8.9.3-r1 \
         paxctl=0.9-r0 \
