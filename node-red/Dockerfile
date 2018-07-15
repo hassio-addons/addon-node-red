@@ -16,7 +16,7 @@ RUN \
         npm=8.11.3-r1 \
         paxctl=0.9-r0 \
     \
-    && paxctl -cm "$(which node)" \
+    && paxctl -cm "$(command -v node)" \
     \
     && npm install \
         --no-optional \
