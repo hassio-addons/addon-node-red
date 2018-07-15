@@ -194,8 +194,8 @@ module.exports = {
     // Customising the editor
     editorTheme: {
         projects: {
-            // To disable the Projects feature, set this value to false
-            enabled: true
+            // To enable the Projects feature, set this value to true
+            enabled: false
         }
     }
 }
