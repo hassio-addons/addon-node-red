@@ -17,7 +17,7 @@
         "node-red-contrib-change-detect": "0.2.0",
         "node-red-contrib-counter": "0.1.5",
         "node-red-contrib-google-home-notify": "0.0.6",
-        "node-red-contrib-home-assistant": "git+https://github.com/Spartan-II-117/node-red-contrib-home-assistant#f4ba56b8333d12aacbf8d075de09367e2b24260f",
+        "node-red-contrib-home-assistant": "git+https://github.com/Spartan-II-117/node-red-contrib-home-assistant#v0.3.3",
         "node-red-contrib-http-request": "0.1.13",
         "node-red-contrib-influxdb": "0.2.1",
         "node-red-contrib-interval-length": "0.0.2",
