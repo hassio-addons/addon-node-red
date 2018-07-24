@@ -12,7 +12,6 @@ declare TMP_FILE
 declare url
 declare key
 declare base_query
-declare query
 
 base_query='.[] | select(.url=="http://hassio/homeassistant" and .type=="server")'
 
