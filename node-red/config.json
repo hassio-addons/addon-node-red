@@ -28,8 +28,8 @@
     "credential_secret": "",
     "users": [
       {
-        "username": "MarryPoppins",
-        "password": "Supercalifragilisticexpialidocious",
+        "username": "",
+        "password": "",
         "permissions": "*"
       }
     ],
