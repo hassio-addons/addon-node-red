@@ -8,6 +8,9 @@ COPY package.json /opt/
 # Set workdir
 WORKDIR /opt
 
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Setup base
 RUN \
     apk add --no-cache \
