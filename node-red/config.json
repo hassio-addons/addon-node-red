@@ -75,7 +75,9 @@
     "require_ssl": "bool",
     "system_packages": ["str"],
     "npm_packages": ["str"],
-    "init_commands": ["str"]
+    "init_commands": ["str"],
+    "i_like_to_be_pwned": "bool?",
+    "leave_front_door_open": "bool?"
   },
   "environment": {
     "LOG_FORMAT": "{LEVEL}: {MESSAGE}"

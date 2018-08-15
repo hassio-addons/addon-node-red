@@ -188,8 +188,7 @@ A user has the following properties:
 Permissions can be `*` or `read`. We are planning to support a more fine-grained
 control over permissions in future releases of the add-on.
 
-**Note**: _When there are no users configured, authentication will be
-disabled completely. This is NOT recommended._
+**Note**: _These options support secrets, e.g., `!secret red_password`._
 
 ### Option: `http_node`
 
@@ -199,7 +198,7 @@ the following properties can be used:
 - `username`
 - `password`
 
-**Note**: _Leaving the `username` field empty, will disable authentication._
+**Note**: _These options support secrets, e.g., `!secret red_password`._
 
 ### Option: `http_static`
 
@@ -209,7 +208,7 @@ properties can be used:
 - `username`
 - `password`
 
-**Note**: _Leaving the `username` field empty, will disable authentication._
+**Note**: _These options support secrets, e.g., `!secret red_password`._
 
 ### Option: `system_packages`
 
@@ -233,6 +232,23 @@ for the add-on._
 Customize your Node-RED environment even more with the `init_commands` option.
 Add one or more shell commands to the list, and they will be executed every
 single time this add-on starts.
+
+### Option: `i_like_to_be_pwned`
+
+Adding this option to the add-on configuration allows to you bypass the
+HaveIBeenPwned password requirement by setting it to `true`.
+
+**Note**: _We STRONGLY suggest picking a stronger/safer password instead of
+using this option! USE AT YOUR OWN RISK!_
+
+### Option: `leave_front_door_open`
+
+Adding this option to the add-on configuration allows you to disable
+authentication on the Web Terminal by setting it to `true` and leaving the
+username and password empty.
+
+**Note**: _We STRONGLY suggest, not to use this, even if this add-on is
+only exposed to your internal network. USE AT YOUR OWN RISK!_
 
 ## Embedding into Home Assistant
 
