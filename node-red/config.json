@@ -42,7 +42,7 @@
       "password": ""
     },
     "port": 1880,
-    "ssl": false,
+    "ssl": true,
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
     "require_ssl": true,
