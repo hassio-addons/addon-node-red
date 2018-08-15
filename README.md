@@ -1,12 +1,11 @@
 # Community Hass.io Add-ons: Node-RED
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/hassio-addons/addon-node-red.svg)](https://greenkeeper.io/)
-
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
 [![License][license-shield]](LICENSE.md)
 
 [![GitLab CI][gitlabci-shield]][gitlabci]
+[![Greenkeeper badge](https://badges.greenkeeper.io/hassio-addons/addon-node-red.svg)](https://greenkeeper.io/)
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
@@ -15,6 +14,8 @@
 [![Community Forum][forum-shield]][forum]
 
 [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
+
+[![Support my work on Patreon][patreon-shield]][patreon]
 
 Flow-based programming for the Internet of Things.
 
@@ -294,10 +295,11 @@ Got questions?
 
 You have several options to get them answered:
 
-- The Home Assistant [Community Forum][forum], we have a
-  [dedicated topic][forum] on that forum regarding this add-on.
-- The Home Assistant [Discord Chat Server][discord] for general Home Assistant
-  discussions and questions.
+- The [Community Hass.io Add-ons Discord chat server][discord] for add-on
+  support and feature requests.
+- The [Home Assistant Discord chat server][discord-ha] for general Home
+  Assistant discussions and questions.
+- The Home Assistant [Community Forum][forum].
 - Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
 
 You could also [open an issue here][issue] GitHub.
@@ -358,6 +360,7 @@ SOFTWARE.
 [aarch64-microbadger]: https://microbadger.com/images/hassioaddons/node-red-aarch64
 [aarch64-pulls-shield]: https://img.shields.io/docker/pulls/hassioaddons/node-red-aarch64.svg
 [aarch64-version-shield]: https://images.microbadger.com/badges/version/hassioaddons/node-red-aarch64.svg
+[alpine-packages]: https://pkgs.alpinelinux.org/packages
 [amd64-anchore-shield]: https://anchore.io/service/badges/image/2b9a78e147678b80fc0e8c63537c669b803f605555d055fba8fe5bd01a5ea60c
 [amd64-anchore]: https://anchore.io/image/dockerhub/hassioaddons%2Fnode-red-amd64%3Alatest
 [amd64-arch-shield]: https://img.shields.io/badge/architecture-amd64-blue.svg
@@ -381,8 +384,9 @@ SOFTWARE.
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-node-red.svg
 [commits]: https://github.com/hassio-addons/addon-node-red/commits/master
 [contributors]: https://github.com/hassio-addons/addon-node-red/graphs/contributors
-[discord-shield]: https://img.shields.io/discord/330944238910963714.svg
-[discord]: https://discord.gg/c5DvZ4e
+[discord-ha]: https://discord.gg/c5DvZ4e
+[discord-shield]: https://img.shields.io/discord/478094546522079232.svg
+[discord]: https://discord.me/hassioaddons
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
 [forum]: https://community.home-assistant.io/t/community-hass-io-add-on-node-red/55023?u=frenck
 [frenck]: https://github.com/frenck
@@ -401,12 +405,13 @@ SOFTWARE.
 [keepchangelog]: http://keepachangelog.com/en/1.0.0/
 [license-shield]: https://img.shields.io/github/license/hassio-addons/addon-node-red.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2018.svg
+[node-red-nodes]: https://flows.nodered.org/?type=node&num_pages=1
+[npm-packages]: https://www.npmjs.com
+[patreon-shield]: https://www.frenck.nl/images/patreon.png
+[patreon]: https://www.patreon.com/frenck
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 [reddit]: https://reddit.com/r/homeassistant
 [releases-shield]: https://img.shields.io/github/release/hassio-addons/addon-node-red.svg
 [releases]: https://github.com/hassio-addons/addon-node-red/releases
 [repository]: https://github.com/hassio-addons/repository
 [semver]: http://semver.org/spec/v2.0.0.htm
-[alpine-packages]: https://pkgs.alpinelinux.org/packages
-[npm-packages]: https://www.npmjs.com
-[node-red-nodes]: https://flows.nodered.org/?type=node&num_pages=1
