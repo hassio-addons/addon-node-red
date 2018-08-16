@@ -15,8 +15,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
     apk add --no-cache \
         git=2.18.0-r0 \
-        nodejs=8.11.3-r1 \
-        npm=8.11.3-r1 \
+        nodejs=8.11.4-r0 \
+        npm=8.11.4-r0 \
         paxctl=0.9-r0 \
     \
     && paxctl -cm "$(command -v node)" \
