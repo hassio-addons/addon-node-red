@@ -13,11 +13,20 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
 RUN \
-    apk add --no-cache \
+    apk add --no-cache --virtual .build-dependencies \
+        gcc=6.4.0-r8 \
+        libc-dev=0.7.1-r0 \
+        python3-dev=3.6.4-r1 \
+    \
+    && apk add --no-cache \
         git=2.18.0-r0 \
         nodejs=8.11.4-r0 \
         npm=8.11.4-r0 \
         paxctl=0.9-r0 \
+        python3=3.6.4-r1 \
+    \
+    && pip3 install \
+        RPi.GPIO==0.6.3 \
     \
     && paxctl -cm "$(command -v node)" \
     \
@@ -25,7 +34,9 @@ RUN \
         --no-optional \
         --only=production \
     \
-    && npm cache clear --force
+    && npm cache clear --force \
+    \
+    && apk del --purge .build-dependencies
 
 # Copy root filesystem
 COPY rootfs /
