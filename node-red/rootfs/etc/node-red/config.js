@@ -13,7 +13,7 @@ const yaml = require('js-yaml');
  * @return
  *   true if the key is a valid option, false otherwise.
  */
-function is_option(key, subkey=null) {
+function isOption(key, subkey=null) {
     if (!(key in options)) {
         console.log('Key is not in options.json');
         return false
@@ -40,13 +40,13 @@ function is_option(key, subkey=null) {
  * @return
  *   Value of the key in the configuration file
  */
-function get_option(key, subkey=null) {
-    if (! is_option(key, subkey)) {
+function getOption(key, subkey=null) {
+    if (! isOption(key, subkey)) {
         console.log('Key is not a valid option')
         return false
     }
-    if (is_secret(key, subkey)) {
-        return get_secret(key, subkey)
+    if (isSecret(key, subkey)) {
+        return getSecret(key, subkey)
     }
 
     if(subkey === null) {
@@ -65,7 +65,7 @@ function get_option(key, subkey=null) {
  * @return
  *   true if the key is a secret, false otherwise.
  */
-function is_secret(key, subkey=null) {
+function isSecret(key, subkey=null) {
     if (!(key in options)) {
         console.log('Key is not in options.json');
         return false
@@ -98,7 +98,7 @@ function is_secret(key, subkey=null) {
  * @return
  *   Value of the key in the referenced to the secrets file
  */
-function get_secret(key, subkey=null) {
+function getSecret(key, subkey=null) {
     if (!fs.existsSync('/config')) {
         console.log('This add-on does not support secrets!');
         return false
@@ -107,7 +107,7 @@ function get_secret(key, subkey=null) {
         console.log('A secret was requested, but could not find a secrets.yaml!');
         return false
     }
-    if (!is_secret(key, subkey)) {
+    if (!isSecret(key, subkey)) {
         console.log('The requested secret does not reference the secrets.yaml');
         return false
     }
@@ -159,8 +159,8 @@ if (options.users.length !== 0) {
 
     options.users.forEach((user, index) => {
         config.adminAuth.users.push({
-            username: get_option(user, 'username'),
-            password: bcrypt.hashSync(get_option(user, 'password')),
+            username: getOption(user, 'username'),
+            password: bcrypt.hashSync(getOption(user, 'password')),
             permissions: user.permissions,
         });
     });
@@ -169,16 +169,16 @@ if (options.users.length !== 0) {
 // Secure HTTP node
 if (options.http_node.username) {
     config.httpNodeAuth = {
-        user: get_option('http_node', 'username'),
-        pass: bcrypt.hashSync(get_option('http_node', 'password')),
+        user: getOption('http_node', 'username'),
+        pass: bcrypt.hashSync(getOption('http_node', 'password')),
     };
 }
 
 // Secure static HTTP
 if (options.http_static.username) {
     config.httpStaticAuth = {
-        user: get_option('http_static', 'username'),
-        pass: bcrypt.hashSync(get_option('http_static', 'password')),
+        user: getOption('http_static', 'username'),
+        pass: bcrypt.hashSync(getOption('http_static', 'password')),
     }
 }
 
