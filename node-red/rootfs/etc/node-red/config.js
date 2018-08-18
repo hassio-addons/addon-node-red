@@ -28,10 +28,7 @@ function is_option(key, subkey=null) {
         value = options[key][subkey]
     }
 
-    if (!value) {
-        console.log('Value of key is empty')
-        return false
-    }
+    console.log('Key exists')
     return true
 }
 
@@ -87,7 +84,7 @@ function is_secret(key, subkey=null) {
         console.log('Key is a secret');
         return true
     } else {
-        console.log('Key is not a secret or empty');
+        console.log('Key is not a secret');
         return false
     }
 }
@@ -129,11 +126,7 @@ function get_secret(key, subkey=null) {
     }
     value = secrets[secret]
 
-    if (!value) {
-        console.log('Value of secret is empty')
-        return false
-    }
-    console.log('Key is a secret')
+    console.log('Secret exists')
     return value;
 }
 
