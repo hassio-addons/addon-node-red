@@ -268,13 +268,6 @@ panel_iframe:
     url: http://addres.to.your.hass.io:1880
 ```
 
-## Known issues and limitations
-
-- Running this add-on on a Raspberry Pi, will show the following warning:
-  `[warn] [node-red/rpi-gpio] Warning : Cannot find Pi RPi.GPIO python library`.
-  This warning can be ignored and is caused by the lack of GPIO Pins support,
-  which we are planning to add in future versions of the add-on.
-
 ## Changelog & Releases
 
 This repository keeps a change log using [GitHub's releases][releases]
