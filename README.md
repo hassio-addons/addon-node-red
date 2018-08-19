@@ -175,6 +175,8 @@ This option allows you to specify your secret key.
 Node-RED from being able to decrypt your existing credentials and they will be
 lost._
 
+**Note**: _This option support secrets, e.g., `!secret red_secret`._
+
 ### Option: `users`
 
 This option can be used to password protect the Node-RED editor and admin API.
@@ -189,7 +191,7 @@ A user has the following properties:
 Permissions can be `*` or `read`. We are planning to support a more fine-grained
 control over permissions in future releases of the add-on.
 
-**Note**: _These options (except for `permissions`) support secrets, e.g., `!secret red_password`._
+**Note**: _These options support secrets, e.g., `!secret red_password`._
 
 ### Option: `http_node`
 
