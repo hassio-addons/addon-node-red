@@ -82,16 +82,16 @@ if (options.users.length !== 0) {
 // Secure HTTP node
 if (options.http_node.username) {
     config.httpNodeAuth = {
-        user: getSecret(http_node.username),
-        pass: bcrypt.hashSync(getSecret(http_node.password)),
+        user: getSecret(options.http_node.username),
+        pass: bcrypt.hashSync(getSecret(options.http_node.password)),
     };
 }
 
 // Secure static HTTP
 if (options.http_static.username) {
     config.httpStaticAuth = {
-        user: getSecret(http_static.username),
-        pass: bcrypt.hashSync(getSecret(http_static.password)),
+        user: getSecret(options.http_static.username),
+        pass: bcrypt.hashSync(getSecret(options.http_static.password)),
     }
 }
 
