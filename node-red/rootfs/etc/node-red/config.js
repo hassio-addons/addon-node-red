@@ -5,129 +5,42 @@ const bcrypt = require('bcryptjs');
 const yaml = require('js-yaml');
 
 /**
- * Checks if a configuration option exists in the config file and has an actual value
- *
- * @param {string} key
- *   Key of the config option
- *
- * @return
- *   true if the key is a valid option, false otherwise.
- */
-function isOption(key, subkey=null) {
-    if (!(key in options)) {
-        console.log('Key is not in options.json');
-        return false
-    }
-    value = options[key]
-
-    if(subkey !== null) {
-        if (!(subkey in value)) {
-            console.log('Subkey is not in options.json');
-            return false
-        }
-        value = options[key][subkey]
-    }
-
-    console.log('Key exists')
-    return true
-}
-
-/**
- * Fetches a configuration value from the add-on config file
- *
- * @param {string} key
- *   Key of the config option
- * @return
- *   Value of the key in the configuration file
- */
-function getOption(key, subkey=null) {
-    if (! isOption(key, subkey)) {
-        console.log('Key is not a valid option')
-        return false
-    }
-    if (isSecret(key, subkey)) {
-        return getSecret(key, subkey)
-    }
-
-    if(subkey === null) {
-        return options[key]
-    } else {
-        return options[key][subkey]
-    }
-}
-
-/**
- * Checks if a configuration option is refering to a secret
- *
- * @param {string} key
- *   Key of the config option
- *
- * @return
- *   true if the key is a secret, false otherwise.
- */
-function isSecret(key, subkey=null) {
-    if (!(key in options)) {
-        console.log('Key is not in options.json');
-        return false
-    }
-    value = options[key]
-
-    if(subkey !== null) {
-        if (!(subkey in value)) {
-            console.log('Subkey is not in options.json');
-            return false
-        }
-        value = options[key][subkey]
-    }
-
-    if(value.startsWith('!secret ')) {
-        console.log('Key is a secret');
-        return true
-    } else {
-        console.log('Key is not a secret');
-        return false
-    }
-}
-
-/**
  * Gets a configuration option value by getting it from secrets.yaml
  *
- * @param {string} key
- *   Key of the config option
+ * @param {string} Value
+ *   Configuration value to resolve
  *
  * @return
- *   Value of the key in the referenced to the secrets file
+ *   Returns the converted configuration value
  */
-function getSecret(key, subkey=null) {
+function getSecret(value) {
+    if(!value.startsWith('!secret ')) {
+        // This is not a secret
+        return value
+    }
+
+    secret = value.substring(8)
+
     if (!fs.existsSync('/config')) {
         console.log('This add-on does not support secrets!');
+        process.exit(1);
         return false
     }
     if (!fs.existsSync('/config/secrets.yaml')) {
-        console.log('A secret was requested, but could not find a secrets.yaml!');
+        console.log(`A secret ${secret} was requested, but could not find a secrets.yaml!`);
+        process.exit(1);
         return false
-    }
-    if (!isSecret(key, subkey)) {
-        console.log('The requested secret does not reference the secrets.yaml');
-        return false
-    }
-
-    if(subkey === null) {
-        secret = options[key].substring(8)
-    } else {
-        secret = options[key][subkey].substring(8)
     }
 
     secrets = yaml.load(fs.readFileSync('/config/secrets.yaml', 'utf8'));
 
     if (!(secret in secrets)) {
-        console.log('Secret is not in the secrets.yaml file');
+        console.log(`Secret ${secret} is not in the secrets.yaml file`);
+        process.exit(1);
         return false
     }
-    value = secrets[secret]
 
-    console.log('Secret exists')
-    return value;
+    return secrets[secret];
 }
 
 // Sane and required defaults for the add-on
@@ -139,13 +52,13 @@ config.nodesDir = '/config/node-red/nodes';
 
 // Several settings
 config.uiPort = options.port;
-config.credentialSecret = options.credential_secret;
+config.credentialSecret = getSecret(options.credential_secret);
 
 // Set SSL if enabled
 if (options.ssl === true) {
     config.https = {
-        key: fs.readFileSync(`/ssl/${options.keyfile}`),
-        cert: fs.readFileSync(`/ssl/${options.certfile}`),
+        key: fs.readFileSync(`/ssl/${getSecret(options.keyfile)}`),
+        cert: fs.readFileSync(`/ssl/${getSecret(options.certfile)}`),
     };
     config.requireHttps = options.require_ssl;
 }
@@ -159,9 +72,9 @@ if (options.users.length !== 0) {
 
     options.users.forEach((user, index) => {
         config.adminAuth.users.push({
-            username: getOption(user, 'username'),
-            password: bcrypt.hashSync(getOption(user, 'password')),
-            permissions: user.permissions,
+            username: getSecret(user.username),
+            password: bcrypt.hashSync(getSecret(user.password)),
+            permissions: getSecret(user.permissions),
         });
     });
 }
@@ -169,16 +82,16 @@ if (options.users.length !== 0) {
 // Secure HTTP node
 if (options.http_node.username) {
     config.httpNodeAuth = {
-        user: getOption('http_node', 'username'),
-        pass: bcrypt.hashSync(getOption('http_node', 'password')),
+        user: getSecret(http_node.username),
+        pass: bcrypt.hashSync(getSecret(http_node.password)),
     };
 }
 
 // Secure static HTTP
 if (options.http_static.username) {
     config.httpStaticAuth = {
-        user: getOption('http_static', 'username'),
-        pass: bcrypt.hashSync(getOption('http_static', 'password')),
+        user: getSecret(http_static.username),
+        pass: bcrypt.hashSync(getSecret(http_static.password)),
     }
 }
 
