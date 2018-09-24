@@ -14,6 +14,7 @@
   ],
   "boot": "auto",
   "hassio_api": true,
+  "hassio_role": "default",
   "homeassistant_api": true,
   "host_network": true,
   "auto_uart": true,
