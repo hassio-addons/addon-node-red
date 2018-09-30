@@ -20,7 +20,7 @@
         "node-red-contrib-google-home-notify": "0.0.6",
         "node-red-contrib-home-assistant": "0.3.2",
         "node-red-contrib-http-request": "0.1.13",
-        "node-red-contrib-influxdb": "0.2.1",
+        "node-red-contrib-influxdb": "0.2.2",
         "node-red-contrib-interval-length": "0.0.2",
         "node-red-contrib-looptimer": "0.0.8",
         "node-red-contrib-moment": "3.0.0",
