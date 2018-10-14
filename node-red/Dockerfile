@@ -14,7 +14,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        gcc=6.4.0-r8 \
+        gcc=6.4.0-r9 \
         libc-dev=0.7.1-r0 \
         python2-dev=2.7.15-r1 \
         py2-pip=10.0.1-r0 \
