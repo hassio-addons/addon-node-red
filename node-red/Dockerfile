@@ -37,7 +37,7 @@ RUN \
     \
     && npm cache clear --force \
     \
-    && apk del --purge .build-dependencies
+    && apk del --purge --force-broken-world .build-dependencies
 
 # Copy root filesystem
 COPY rootfs /
