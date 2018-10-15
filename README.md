@@ -42,6 +42,7 @@ comparison to installing any other Hass.io add-on.
 1. If you have SSL, set the `ssl` option to true.
 1. Start the "Node-RED" add-on.
 1. Check the logs of "Node-RED" to see if everything went well.
+1. Login with your Home Assistant username/password.
 
 Please read the rest of this document further instructions.
 
