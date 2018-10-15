@@ -42,6 +42,7 @@ comparison to installing any other Hass.io add-on.
 1. If you have SSL, set the `ssl` option to true.
 1. Start the "Node-RED" add-on.
 1. Check the logs of "Node-RED" to see if everything went well.
+1. Login with your Home Assistant username/password.
 
 Please read the rest of this document further instructions.
 
@@ -80,18 +81,6 @@ Example add-on configuration:
 {
   "log_level": "info",
   "credential_secret": "KJHhfdhiFRENCKfsdfdsDHFHDJS",
-  "users": [
-    {
-      "username": "frenck",
-      "password": "yeah... I don't think so",
-      "permissions": "*"
-    },
-    {
-      "username": "MarryPoppins",
-      "password": "Supercalifragilisticexpialidocious",
-      "permissions": "read"
-    }
-  ],
   "http_node": {
     "username": "MarryPoppins",
     "password": "Supercalifragilisticexpialidocious"
@@ -176,22 +165,6 @@ Node-RED from being able to decrypt your existing credentials and they will be
 lost._
 
 **Note**: _This option support secrets, e.g., `!secret red_secret`._
-
-### Option: `users`
-
-This option can be used to password protect the Node-RED editor and admin API.
-Password protecting your setup is, of course, strongly recommended.
-
-A user has the following properties:
-
-- `username`
-- `password`
-- `permissions`
-
-Permissions can be `*` or `read`. We are planning to support a more fine-grained
-control over permissions in future releases of the add-on.
-
-**Note**: _These options support secrets, e.g., `!secret red_password`._
 
 ### Option: `http_node`
 

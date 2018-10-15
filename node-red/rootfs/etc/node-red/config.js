@@ -44,15 +44,16 @@ function getSecret(value) {
 }
 
 // Sane and required defaults for the add-on
-config.uiHost = '0.0.0.0';
 config.debugUseColors = false;
 config.flowFile = 'flows.json';
-config.userDir = '/config/node-red/';
 config.nodesDir = '/config/node-red/nodes';
+config.uiHost = '0.0.0.0';
+config.userDir = '/config/node-red/';
 
 // Several settings
-config.uiPort = options.port;
+config.adminAuth = require('/etc/node-red/ha-auth.js');
 config.credentialSecret = getSecret(options.credential_secret);
+config.uiPort = options.port;
 
 // Set SSL if enabled
 if (options.ssl === true) {
@@ -61,22 +62,6 @@ if (options.ssl === true) {
         cert: fs.readFileSync(`/ssl/${getSecret(options.certfile)}`),
     };
     config.requireHttps = options.require_ssl;
-}
-
-// Create admin users
-if (options.users.length !== 0) {
-    config.adminAuth = {
-        type: "credentials",
-        users: [],
-    };
-
-    options.users.forEach((user, index) => {
-        config.adminAuth.users.push({
-            username: getSecret(user.username),
-            password: bcrypt.hashSync(getSecret(user.password)),
-            permissions: getSecret(user.permissions),
-        });
-    });
 }
 
 // Secure HTTP node

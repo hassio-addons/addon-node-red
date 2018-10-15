@@ -17,6 +17,7 @@
   "hassio_role": "default",
   "homeassistant_api": true,
   "host_network": true,
+  "login_backend": true,
   "auto_uart": true,
   "gpio": true,
   "privileged": [
@@ -34,13 +35,6 @@
   "options": {
     "log_level": "info",
     "credential_secret": "",
-    "users": [
-      {
-        "username": "",
-        "password": "",
-        "permissions": "*"
-      }
-    ],
     "http_node": {
       "username": "",
       "password": ""
@@ -61,13 +55,6 @@
   "schema": {
     "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
     "credential_secret": "str",
-    "users": [
-      {
-        "username": "str",
-        "password": "str",
-        "permissions": "str"
-      }
-    ],
     "http_node": {
       "username": "str",
       "password": "str"
