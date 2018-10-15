@@ -17,6 +17,7 @@
   "hassio_role": "default",
   "homeassistant_api": true,
   "host_network": true,
+  "login_backend": true,
   "auto_uart": true,
   "gpio": true,
   "privileged": [
