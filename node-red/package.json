@@ -38,6 +38,9 @@
         "node-red-node-smooth": "0.1.0",
         "node-red-node-suncalc": "0.0.11"
     },
+    "resolutions": {
+        "google-tts-api": "0.0.3",
+    }
     "engines": {
         "node": "4.*.*"
     }
