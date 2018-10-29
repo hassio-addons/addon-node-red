@@ -11,46 +11,10 @@ if ! hass.config.has_value 'credential_secret'; then
     hass.die 'Setting a credential_secret is REQUIRED!'
 fi
 
-# Require http_node username / password
-if ! hass.config.has_value 'http_node.username' \
-    && ! ( \
-        hass.config.exists 'leave_front_door_open' \
-        && hass.config.true 'leave_front_door_open' \
-    );
-then
-    hass.die 'You need to set a http_node username!'
-fi
- if ! hass.config.has_value 'http_node.password' \
-    && ! ( \
-        hass.config.exists 'leave_front_door_open' \
-        && hass.config.true 'leave_front_door_open' \
-    );
-then
-    hass.die 'You need to set a http_node password!';
-fi
-
  # Require a secure http_node password
 if hass.config.has_value 'http_node.password' \
     && ! hass.config.is_safe_password 'http_node.password'; then
     hass.die "Please choose a different http_node password, this one is unsafe!"
-fi
-
-# Require http_static username / password
-if ! hass.config.has_value 'http_static.username' \
-    && ! ( \
-        hass.config.exists 'leave_front_door_open' \
-        && hass.config.true 'leave_front_door_open' \
-    );
-then
-    hass.die 'You need to set a http_static username!'
-fi
- if ! hass.config.has_value 'http_static.password' \
-    && ! ( \
-        hass.config.exists 'leave_front_door_open' \
-        && hass.config.true 'leave_front_door_open' \
-    );
-then
-    hass.die 'You need to set a http_static password!';
 fi
 
  # Require a secure http_static password
