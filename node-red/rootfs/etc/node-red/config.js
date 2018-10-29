@@ -51,9 +51,13 @@ config.uiHost = '0.0.0.0';
 config.userDir = '/config/node-red/';
 
 // Several settings
-config.adminAuth = require('/etc/node-red/ha-auth.js');
 config.credentialSecret = getSecret(options.credential_secret);
 config.uiPort = options.port;
+
+// Enable authentication
+if (!options.leave_front_door_open) {
+    config.adminAuth = require('/etc/node-red/ha-auth.js');
+}
 
 // Set SSL if enabled
 if (options.ssl === true) {
