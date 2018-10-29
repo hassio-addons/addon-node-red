@@ -14,7 +14,7 @@
   ],
   "boot": "auto",
   "hassio_api": true,
-  "hassio_role": "default",
+  "hassio_role": "manager",
   "homeassistant_api": true,
   "host_network": true,
   "auth_api": true,
