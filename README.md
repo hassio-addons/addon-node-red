@@ -38,11 +38,15 @@ comparison to installing any other Hass.io add-on.
 1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
 1. Install the "Node-RED" add-on.
 1. Set a `credential_secret`, which is used to encrypt sensitive data.
-1. Configure usernames & passwords.
-1. If you have SSL, set the `ssl` option to true.
+   This is just a "password", which you should save on a secondary location.
+1. If you do NOT use SSL, be sure to set the `ssl` option to `false`.
 1. Start the "Node-RED" add-on.
 1. Check the logs of "Node-RED" to see if everything went well.
-1. Login with your Home Assistant username/password.
+1. Log in with your Home Assistant username/password.
+1. The add-on works straight out the box! No need to configure a server!
+
+**Note**: The add-on is **pre-configured** out of the box! There is no need
+to add/change/update the server connection settings!
 
 Please read the rest of this document further instructions.
 
@@ -158,7 +162,9 @@ to HTTPS. This is recommended when you have SSL enabled.
 ### Option: `credential_secret`
 
 Credentials are encrypted by Node-RED in storage, using secret key.
-This option allows you to specify your secret key.
+This option allows you to specify your secret key. This can be anything
+you like, it is just like a password. Be sure to store it somewhere safe.
+You might need it in the future! (e.g., When restoring a backup).
 
 **Note**: _Once you set this property, do not change it - doing so will prevent
 Node-RED from being able to decrypt your existing credentials and they will be
@@ -242,6 +248,35 @@ panel_iframe:
     icon: mdi:sitemap
     url: http://addres.to.your.hass.io:1880
 ```
+
+## FAQ
+
+### Node-RED could not establish connection
+
+So, this is like the most asked question. It involves messages in the error
+logs that look like this:
+
+```text
+Home assistant connection failed with error: Connection to home assistant could
+not be established with config: http://XXXXX.duckdns.org <password redacted>
+```
+
+The solution to this is simple:
+
+- Click on one of the Home Assistant nodes in your flow.
+- Click on the little edit button, next to the server name.
+- Change the URL to: `http://hassio/homeassistant`.
+- Save it, and deploy your flow!
+- Now the add-on handles the authentication for you.
+
+### The configured certfile is not found
+
+This error is shown when you have enabled `ssl` in the add-on option,
+but the SSL certificate files are not found on disk.
+
+Either correct the `certfile` in case you are using SSL, get an SSL certificate
+(which you actually should) OR disable the `ssl` feature by setting the
+configuration option to `false`.
 
 ## Changelog & Releases
 
