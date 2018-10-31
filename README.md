@@ -251,6 +251,19 @@ panel_iframe:
 
 ## FAQ
 
+### I'm having all kinds of issues after upgrading to v1.x.x
+
+A lot has changed, since v1.0.0. Maybe you've missed the release/upgrade notes?
+Please be sure to read them and to follow the upgrade instructions.
+
+<https://github.com/hassio-addons/addon-node-red/releases/tag/v1.0.0>
+
+### I'm unable to log in, after upgrading to v1.x.x
+
+The login uses Home Assistant's authentication system. You can now login using
+the same username and password as you use to log on to
+the Home Assistant frontend.
+
 ### Node-RED could not establish connection
 
 So, this is like the most asked question. It involves messages in the error
