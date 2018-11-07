@@ -14,7 +14,7 @@
         "node-red": "0.19.5",
         "node-red-contrib-actionflows": "2.0.1",
         "node-red-contrib-alexa-home-skill": "0.1.17",
-        "node-red-contrib-bigtimer": "2.0.2",
+        "node-red-contrib-bigtimer": "2.0.3",
         "node-red-contrib-counter": "0.1.5",
         "node-red-contrib-google-home-notify": "0.0.6",
         "node-red-contrib-home-assistant-websocket": "0.1.3",
