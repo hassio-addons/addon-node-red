@@ -28,10 +28,10 @@ RUN \
         paxctl=0.9-r0 \
         python2=2.7.15-r1 \
     \
+    && paxctl -cm "$(command -v node)" \
+    \
     && pip install \
         RPi.GPIO==0.6.5 \
-    \
-    && paxctl -cm "$(command -v node)" \
     \
     && npm install \
         --no-optional \
