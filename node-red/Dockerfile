@@ -29,7 +29,7 @@ RUN \
         python2=2.7.15-r1 \
     \
     && pip install \
-        RPi.GPIO==0.6.3 \
+        RPi.GPIO==0.6.5 \
     \
     && paxctl -cm "$(command -v node)" \
     \
