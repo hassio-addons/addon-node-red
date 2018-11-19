@@ -23,8 +23,8 @@ RUN \
     \
     && apk add --no-cache \
         git=2.18.1-r0 \
-        nodejs@edge=8.12.0-r0 \
-        npm@edge=8.12.0-r0 \
+        nodejs@edge=10.13.0-r0 \
+        npm@edge=10.13.0-r0 \
         paxctl=0.9-r0 \
         python2=2.7.15-r1 \
     \
