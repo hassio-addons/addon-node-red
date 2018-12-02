@@ -41,7 +41,7 @@
     },
     "resolutions": {
         "bluebird": "3.5.3",
-        "google-tts-api": "0.0.3"
+        "google-tts-api": "0.0.4"
     },
     "engines": {
         "node": "4.*.*"
