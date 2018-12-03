@@ -14,7 +14,7 @@
         "js-yaml": "3.12.0",
         "node-red": "0.19.5",
         "node-red-contrib-actionflows": "2.0.1",
-        "node-red-contrib-alexa-home-skill": "0.1.17",
+        "node-red-contrib-alexa-home": "0.3.5",
         "node-red-contrib-bigtimer": "2.0.3",
         "node-red-contrib-counter": "0.1.5",
         "node-red-contrib-google-home-notify": "0.0.6",
