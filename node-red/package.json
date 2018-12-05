@@ -16,8 +16,8 @@
         "node-red-contrib-actionflows": "2.0.1",
         "node-red-contrib-alexa-home-skill": "0.1.17",
         "node-red-contrib-bigtimer": "2.0.3",
+        "node-red-contrib-cast": "^0.2.1",
         "node-red-contrib-counter": "0.1.5",
-        "node-red-contrib-google-home-notify": "0.0.6",
         "node-red-contrib-home-assistant-websocket": "0.3.1",
         "node-red-contrib-http-request": "0.1.13",
         "node-red-contrib-influxdb": "0.2.2",
@@ -39,10 +39,6 @@
         "node-red-node-serialport": "0.6.8",
         "node-red-node-smooth": "0.1.0",
         "node-red-node-suncalc": "0.0.11"
-    },
-    "resolutions": {
-        "bluebird": "3.5.3",
-        "google-tts-api": "0.0.4"
     },
     "engines": {
         "node": "4.*.*"
