@@ -4,7 +4,7 @@
 ![Project Stage][project-stage-shield]
 [![License][license-shield]](LICENSE.md)
 
-[![Build Status](https://travis-ci.org/tjorim/addon-node-red.svg?branch=master)](https://travis-ci.org/tjorim/addon-node-red)
+[![Build Status](https://travis-ci.org/tjorim/addon-node-red.svg?branch=master)](https://travis-ci.org/tjorim/addon-node-red) [![Greenkeeper badge](https://badges.greenkeeper.io/tjorim/addon-node-red.svg)](https://greenkeeper.io/)
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
