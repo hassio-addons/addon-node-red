@@ -4,8 +4,7 @@
 ![Project Stage][project-stage-shield]
 [![License][license-shield]](LICENSE.md)
 
-[![GitLab CI][gitlabci-shield]][gitlabci]
-[![Greenkeeper badge](https://badges.greenkeeper.io/hassio-addons/addon-node-red.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/tjorim/addon-node-red.svg?branch=master)](https://travis-ci.org/tjorim/addon-node-red)
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
@@ -406,8 +405,6 @@ SOFTWARE.
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
 [forum]: https://community.home-assistant.io/t/community-hass-io-add-on-node-red/55023?u=frenck
 [frenck]: https://github.com/frenck
-[gitlabci-shield]: https://gitlab.com/hassio-addons/addon-node-red/badges/master/pipeline.svg
-[gitlabci]: https://gitlab.com/hassio-addons/addon-node-red/pipelines
 [home-assistant]: https://home-assistant.io
 [i386-anchore-shield]: https://anchore.io/service/badges/image/4f3282de1b844e95b246ad7271392feee3bff81abbdbdedc8357f306b705ae75
 [i386-anchore]: https://anchore.io/image/dockerhub/hassioaddons%2Fnode-red-i386%3Alatest
