@@ -26,6 +26,7 @@ RUN \
         git=2.18.1-r0 \
         nodejs=8.14.0-r0 \
         npm=8.14.0-r0 \
+        openssh-client=7.7_p1-r3 \
         paxctl=0.9-r0 \
         python2=2.7.15-r1 \
     \
