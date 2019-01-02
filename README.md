@@ -368,8 +368,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[aarch64-anchore-shield]: https://anchore.io/service/badges/image/e1fe7eff6060158fd4f39bb33fd9cf79cff0d6f15cbbbdb748288c14af47098c
-[aarch64-anchore]: https://anchore.io/image/dockerhub/hassioaddons%2Fnode-red-aarch64%3Alatest
 [aarch64-arch-shield]: https://img.shields.io/badge/architecture-aarch64-blue.svg
 [aarch64-dockerhub]: https://hub.docker.com/r/hassioaddons/node-red-aarch64
 [aarch64-layers-shield]: https://images.microbadger.com/badges/image/hassioaddons/node-red-aarch64.svg
@@ -377,16 +375,12 @@ SOFTWARE.
 [aarch64-pulls-shield]: https://img.shields.io/docker/pulls/hassioaddons/node-red-aarch64.svg
 [aarch64-version-shield]: https://images.microbadger.com/badges/version/hassioaddons/node-red-aarch64.svg
 [alpine-packages]: https://pkgs.alpinelinux.org/packages
-[amd64-anchore-shield]: https://anchore.io/service/badges/image/2b9a78e147678b80fc0e8c63537c669b803f605555d055fba8fe5bd01a5ea60c
-[amd64-anchore]: https://anchore.io/image/dockerhub/hassioaddons%2Fnode-red-amd64%3Alatest
 [amd64-arch-shield]: https://img.shields.io/badge/architecture-amd64-blue.svg
 [amd64-dockerhub]: https://hub.docker.com/r/hassioaddons/node-red-amd64
 [amd64-layers-shield]: https://images.microbadger.com/badges/image/hassioaddons/node-red-amd64.svg
 [amd64-microbadger]: https://microbadger.com/images/hassioaddons/node-red-amd64
 [amd64-pulls-shield]: https://img.shields.io/docker/pulls/hassioaddons/node-red-amd64.svg
 [amd64-version-shield]: https://images.microbadger.com/badges/version/hassioaddons/node-red-amd64.svg
-[armhf-anchore-shield]: https://anchore.io/service/badges/image/7a31261290489f95ff24e504a87b93d5d852f4f81b403a3de2f55db908e1e782
-[armhf-anchore]: https://anchore.io/image/dockerhub/hassioaddons%2Fnode-red-armhf%3Alatest
 [armhf-arch-shield]: https://img.shields.io/badge/architecture-armhf-blue.svg
 [armhf-dockerhub]: https://hub.docker.com/r/hassioaddons/node-red-armhf
 [armhf-layers-shield]: https://images.microbadger.com/badges/image/hassioaddons/node-red-armhf.svg
@@ -409,8 +403,6 @@ SOFTWARE.
 [gitlabci-shield]: https://gitlab.com/hassio-addons/addon-node-red/badges/master/pipeline.svg
 [gitlabci]: https://gitlab.com/hassio-addons/addon-node-red/pipelines
 [home-assistant]: https://home-assistant.io
-[i386-anchore-shield]: https://anchore.io/service/badges/image/4f3282de1b844e95b246ad7271392feee3bff81abbdbdedc8357f306b705ae75
-[i386-anchore]: https://anchore.io/image/dockerhub/hassioaddons%2Fnode-red-i386%3Alatest
 [i386-arch-shield]: https://img.shields.io/badge/architecture-i386-blue.svg
 [i386-dockerhub]: https://hub.docker.com/r/hassioaddons/node-red-i386
 [i386-layers-shield]: https://images.microbadger.com/badges/image/hassioaddons/node-red-i386.svg
