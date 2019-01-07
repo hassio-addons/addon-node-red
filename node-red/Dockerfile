@@ -3,7 +3,7 @@ ARG BUILD_FROM=hassioaddons/base:2.3.0
 FROM ${BUILD_FROM}
 
 # Copy Node-RED package.json
-COPY package.json /opt/
+COPY package.json requirements.txt /opt/
 
 # Set workdir
 WORKDIR /opt
@@ -32,8 +32,7 @@ RUN \
     \
     && paxctl -cm "$(command -v node)" \
     \
-    && pip install \
-        RPi.GPIO==0.6.5 \
+    && pip install --no-cache-dir -r /opt/requirements.txt \
     \
     && npm install \
         --no-optional \
