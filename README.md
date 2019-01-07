@@ -5,7 +5,6 @@
 [![License][license-shield]](LICENSE.md)
 
 [![GitLab CI][gitlabci-shield]][gitlabci]
-[![Greenkeeper badge](https://badges.greenkeeper.io/hassio-addons/addon-node-red.svg)](https://greenkeeper.io/)
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
@@ -35,14 +34,14 @@ The installation of this add-on is pretty straightforward and not different in
 comparison to installing any other Hass.io add-on.
 
 1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
-1. Install the "Node-RED" add-on.
-1. Set a `credential_secret`, which is used to encrypt sensitive data.
+2. Install the "Node-RED" add-on.
+3. Set a `credential_secret`, which is used to encrypt sensitive data.
    This is just a "password", which you should save on a secondary location.
-1. If you do NOT use SSL, be sure to set the `ssl` option to `false`.
-1. Start the "Node-RED" add-on.
-1. Check the logs of "Node-RED" to see if everything went well.
-1. Log in with your Home Assistant username/password.
-1. The add-on works straight out the box! No need to configure a server!
+4. If you do NOT use SSL, be sure to set the `ssl` option to `false`.
+5. Start the "Node-RED" add-on.
+6. Check the logs of "Node-RED" to see if everything went well.
+7. Log in with your Home Assistant username/password.
+8. The add-on works straight out the box! No need to configure a server!
 
 **Note**: The add-on is **pre-configured** out of the box! There is no need
 to add/change/update the server connection settings!
