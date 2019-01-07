@@ -1,10 +1,10 @@
 {
     "squash": false,
     "build_from": {
-        "aarch64": "hassioaddons/base-aarch64:2.3.0",
-        "amd64": "hassioaddons/base-amd64:2.3.0",
-        "armhf": "hassioaddons/base-armhf:2.3.0",
-        "i386": "hassioaddons/base-i386:2.3.0"
+        "aarch64": "hassioaddons/base-aarch64:2.3.1",
+        "amd64": "hassioaddons/base-amd64:2.3.1",
+        "armhf": "hassioaddons/base-armhf:2.3.1",
+        "i386": "hassioaddons/base-i386:2.3.1"
     },
     "args": {}
 }

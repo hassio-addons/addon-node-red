@@ -9,7 +9,7 @@ variables:
   ADDON_ARMV7: "false"
   ADDON_LEGACY_TAGS: "true"
 
-  ADDON_AARCH64_BASE: "hassioaddons/base-aarch64:2.3.0"
-  ADDON_AMD64_BASE: "hassioaddons/base-amd64:2.3.0"
-  ADDON_ARMHF_BASE: "hassioaddons/base-armhf:2.3.0"
-  ADDON_I386_BASE: "hassioaddons/base-i386:2.3.0"
+  ADDON_AARCH64_BASE: "hassioaddons/base-aarch64:2.3.1"
+  ADDON_AMD64_BASE: "hassioaddons/base-amd64:2.3.1"
+  ADDON_ARMHF_BASE: "hassioaddons/base-armhf:2.3.1"
+  ADDON_I386_BASE: "hassioaddons/base-i386:2.3.1"
