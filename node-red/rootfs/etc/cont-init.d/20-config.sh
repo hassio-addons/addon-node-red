@@ -14,6 +14,8 @@ if ! hass.directory_exists '/config/node-red/'; then
     # Copy in template files
     cp /etc/node-red/flows.json /config/node-red/
     cp /etc/node-red/settings.js /config/node-red/
+    cp /etc/node-red/midnight.css /config/node-red/
+    cp /etc/node-red/theme-tomorrow.js /config/node-red/
 
     # Create random flow id
     id=$(node -e "console.log((1+Math.random()*4294967295).toString(16));")

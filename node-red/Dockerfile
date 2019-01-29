@@ -40,7 +40,15 @@ RUN \
     \
     && npm cache clear --force \
     \
-    && apk del --purge --force-broken-world .build-dependencies
+    && apk del --purge --force-broken-world .build-dependencies \
+    \
+    && curl -J -L -o /tmp/theme.zip \
+        "https://github.com/bonanitech/midnight-red/archive/v0.2.5.zip" \
+    && unzip -d /tmp /tmp/web.zip \
+    && mv /tmp/midnight.css /etc \
+    && mv /tmp/theme-tomorrow.js /etc \
+    \
+    && rm -fr /tmp/*
 
 # Copy root filesystem
 COPY rootfs /
