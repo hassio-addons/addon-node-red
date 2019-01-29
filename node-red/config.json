@@ -48,6 +48,7 @@
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
     "require_ssl": true,
+    "dark_mode": true,
     "system_packages": [],
     "npm_packages": [],
     "init_commands": []
@@ -68,6 +69,7 @@
     "certfile": "str",
     "keyfile": "str",
     "require_ssl": "bool",
+    "dark_mode": "bool",
     "system_packages": ["str"],
     "npm_packages": ["str"],
     "init_commands": ["str"],

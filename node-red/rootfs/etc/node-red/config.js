@@ -43,6 +43,14 @@ function getSecret(value) {
     return secrets[secret];
 }
 
+// Set dark theme if enabled
+if (options.dark_theme === true) {
+    config.editorTheme.page = {
+        css: "/config/node-red/midnight.css",
+        scripts: "/config/node-red/theme-tomorrow.js"
+    };
+}
+
 // Sane and required defaults for the add-on
 config.debugUseColors = false;
 config.flowFile = 'flows.json';
