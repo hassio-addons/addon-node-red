@@ -44,9 +44,9 @@ RUN \
     \
     && curl -J -L -o /tmp/theme.zip \
         "https://github.com/bonanitech/midnight-red/archive/v0.2.5.zip" \
-    && unzip -d /tmp /tmp/web.zip \
-    && mv /tmp/midnight.css /etc \
-    && mv /tmp/theme-tomorrow.js /etc \
+    && unzip -d /tmp /tmp/theme.zip \
+    && mv /tmp/midnight-red-0.2.5/midnight.css /etc/node-red \
+    && mv /tmp/midnight-red-0.2.5/theme-tomorrow.js /etc/node-red \
     \
     && rm -fr /tmp/*
 
