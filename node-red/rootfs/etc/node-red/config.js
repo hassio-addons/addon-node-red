@@ -44,7 +44,7 @@ function getSecret(value) {
 }
 
 // Set dark theme if enabled
-if (options.dark_theme === true) {
+if (options.dark_theme) {
     config.editorTheme.page = {
         css: "/config/node-red/midnight.css",
         scripts: "/config/node-red/theme-tomorrow.js"
@@ -68,7 +68,7 @@ if (!options.leave_front_door_open) {
 }
 
 // Set SSL if enabled
-if (options.ssl === true) {
+if (options.ssl) {
     config.https = {
         key: fs.readFileSync(`/ssl/${getSecret(options.keyfile)}`),
         cert: fs.readFileSync(`/ssl/${getSecret(options.certfile)}`),
