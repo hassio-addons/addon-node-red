@@ -170,6 +170,14 @@ lost._
 
 **Note**: _This option support secrets, e.g., `!secret red_secret`._
 
+### Option: `dark_mode`
+
+When set to `true`, the Midnight Node-RED theme by [Mauricio Bonani][bonanitech]
+will be enabled. For more information and a glance at how it looks,
+see the GitHub repository of this theme:
+
+<https://github.com/bonanitech/midnight-red>
+
 ### Option: `http_node`
 
 To password protect the node-defined HTTP endpoints (httpNodeRoot),
