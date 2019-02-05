@@ -68,7 +68,7 @@ if (!options.leave_front_door_open) {
 }
 
 // Set SSL if enabled
-if (options.ssl) {
+if (options.ssl === true) {
     config.https = {
         key: fs.readFileSync(`/ssl/${getSecret(options.keyfile)}`),
         cert: fs.readFileSync(`/ssl/${getSecret(options.certfile)}`),
