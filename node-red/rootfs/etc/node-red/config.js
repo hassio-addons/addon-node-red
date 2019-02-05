@@ -44,7 +44,7 @@ function getSecret(value) {
 }
 
 // Set dark theme if enabled
-if (options.dark_theme) {
+if (options.dark_mode) {
     config.editorTheme.page = {
         css: '/etc/node-red/midnight.css',
         scripts: '/etc/node-red/theme-tomorrow.js',
