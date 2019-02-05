@@ -393,6 +393,7 @@ SOFTWARE.
 [armhf-microbadger]: https://microbadger.com/images/hassioaddons/node-red-armhf
 [armhf-pulls-shield]: https://img.shields.io/docker/pulls/hassioaddons/node-red-armhf.svg
 [armhf-version-shield]: https://images.microbadger.com/badges/version/hassioaddons/node-red-armhf.svg
+[bonanitech]: https://github.com/bonanitech
 [buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
 [buymeacoffee]: https://www.buymeacoffee.com/frenck
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-node-red.svg
