@@ -35,6 +35,7 @@
   "options": {
     "log_level": "info",
     "credential_secret": "",
+    "dark_mode": false,
     "http_node": {
       "username": "",
       "password": ""
@@ -48,7 +49,6 @@
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
     "require_ssl": true,
-    "dark_mode": true,
     "system_packages": [],
     "npm_packages": [],
     "init_commands": []
@@ -56,6 +56,7 @@
   "schema": {
     "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
     "credential_secret": "str",
+    "dark_mode": "bool",
     "http_node": {
       "username": "str",
       "password": "str"
@@ -69,7 +70,6 @@
     "certfile": "str",
     "keyfile": "str",
     "require_ssl": "bool",
-    "dark_mode": "bool",
     "system_packages": ["str"],
     "npm_packages": ["str"],
     "init_commands": ["str"],
