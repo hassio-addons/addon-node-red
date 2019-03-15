@@ -43,11 +43,11 @@ RUN \
     && apk del --purge --force-broken-world .build-dependencies \
     \
     && curl -J -L -o /tmp/theme.zip \
-        "https://github.com/bonanitech/midnight-red/archive/v0.2.8.zip" \
+        "https://github.com/bonanitech/midnight-red/archive/v0.2.9.zip" \
     && unzip -d /tmp /tmp/theme.zip \
     && mkdir -p /etc/node-red \
-    && mv /tmp/midnight-red-0.2.8/midnight.css /etc/node-red/ \
-    && mv /tmp/midnight-red-0.2.8/theme-tomorrow.js /etc/node-red/ \
+    && mv /tmp/midnight-red-0.2.9/midnight.css /etc/node-red/ \
+    && mv /tmp/midnight-red-0.2.9/theme-tomorrow.js /etc/node-red/ \
     \
     && rm -fr /tmp/*
 
