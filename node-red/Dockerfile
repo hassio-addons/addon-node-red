@@ -17,7 +17,7 @@ RUN \
         g++=8.2.0-r2 \
         gcc=8.2.0-r2 \
         libc-dev=0.7.1-r0 \
-        linux-headers=4.4.6-r2 \
+        linux-headers=4.18.13-r1 \
         make=4.2.1-r2 \
         py2-pip=10.0.1-r0 \
         python2-dev=2.7.15-r1 \
