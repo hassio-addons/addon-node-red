@@ -32,6 +32,8 @@ RUN \
     \
     && paxctl -cm "$(command -v node)" \
     \
+    && npm config set unsafe-perm true \
+    \
     && npm install -g modclean@3.0.0-beta.1 \
     \
     && pip install --no-cache-dir -r /opt/requirements.txt \
