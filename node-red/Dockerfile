@@ -23,10 +23,10 @@ RUN \
         python2-dev=2.7.15-r3 \
     \
     && apk add --no-cache \
-        openssh-client=7.7_p1-r4 \
         git=2.20.1-r0 \
         nodejs=10.14.2-r0 \
         npm=10.14.2-r0 \
+        openssh-client=7.9_p1-r4 \
         paxctl=0.9-r0 \
         python2=2.7.15-r3 \
     \
