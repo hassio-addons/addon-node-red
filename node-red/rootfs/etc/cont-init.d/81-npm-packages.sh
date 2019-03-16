@@ -1,19 +1,17 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv bashio
 # ==============================================================================
 # Community Hass.io Add-ons: Node-RED
 # Install user configured/requested packages
 # ==============================================================================
-# shellcheck disable=SC1091
-source /usr/lib/hassio-addons/base.sh
+if bashio::config.has_value 'npm_packages'; then
+    cd /opt || bashio::exit.nok "Could not change directory to Node-RED"
 
-if hass.config.has_value 'npm_packages'; then
-    cd /opt || hass.die "Could not change directory to Node-RED"
-
-    for package in $(hass.config.get 'npm_packages'); do
+    bashio::log.info "Starting installation of custom NPM/Node-RED packages..."
+    for package in $(bashio::config 'npm_packages'); do
         npm install \
             --no-optional \
             --only=production \
             "$package" \
-                || hass.die "Failed installing npm package ${package}"
+                || bashio::exit.nok "Failed installing npm package ${package}"
     done
 fi

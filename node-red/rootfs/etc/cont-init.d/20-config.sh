@@ -1,15 +1,12 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv bashio
 # ==============================================================================
 # Community Hass.io Add-ons: Node-RED
 # Ensures the configuration for the user exists
 # ==============================================================================
-# shellcheck disable=SC1091
-source /usr/lib/hassio-addons/base.sh
-
 # Ensure configuration exists
-if ! hass.directory_exists '/config/node-red/'; then
+if ! bashio::fs.directory_exists '/config/node-red/'; then
     mkdir -p /config/node-red/nodes \
-        || hass.die "Failed to create node-red configuration directory"
+        || bashio::exit.nok "Failed to create node-red configuration directory"
 
     # Copy in template files
     cp /etc/node-red/flows.json /config/node-red/

@@ -1,43 +1,37 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv bashio
 # ==============================================================================
 # Community Hass.io Add-ons: Node-RED
 # This files check if all user configuration requirements are met
 # ==============================================================================
-# shellcheck disable=SC1091
-source /usr/lib/hassio-addons/base.sh
-
 # Ensure the credential secret value is set
-if ! hass.config.has_value 'credential_secret'; then
-    hass.die 'Setting a credential_secret is REQUIRED!'
+if bashio::config.is_empty 'credential_secret'; then
+    bashio::log.fatal
+    bashio::log.fatal 'Configuration of this add-on is incomplete.'
+    bashio::log.fatal
+    bashio::log.fatal 'Please be sure to set the "credential_secret" option.'
+    bashio::log.fatal
+    bashio::log.fatal 'The credential secret is an encryption token, much like'
+    bashio::log.fatal 'a password, that is used by Node-RED for encrypting'
+    bashio::log.fatal 'credentials you put into Node-RED.'
+    bashio::log.fatal
+    bashio::log.fatal 'Just like a password, a credential secret can be'
+    bashio::log.fatal 'anything you like. Just be sure to store it somewhere'
+    bashio::log.fatal 'safe for later, e.g., in case of a recovery.'
+    bashio::log.fatal
+    bashio::exit.nok
 fi
 
  # Require a secure http_node password
-if hass.config.has_value 'http_node.password' \
-    && ! hass.config.is_safe_password 'http_node.password'; then
-    hass.die "Please choose a different http_node password, this one is unsafe!"
+if bashio::config.has_value 'http_node.password' \
+    && ! bashio::config.true 'i_like_to_be_pwned'; then
+    bashio::config.require.safe_password 'http_node.password'
 fi
 
  # Require a secure http_static password
-if hass.config.has_value 'http_static.password' \
-    && ! hass.config.is_safe_password 'http_static.password'; then
-    hass.die "Please choose a different http_static password, this one is unsafe!"
+if bashio::config.has_value 'http_static.password' \
+    && ! bashio::config.true 'i_like_to_be_pwned'; then
+    bashio::config.require.safe_password 'http_static.password'
 fi
 
-# Check SSL requirements, if enabled
-if hass.config.true 'ssl'; then
-    if ! hass.config.has_value 'certfile'; then
-        hass.die 'SSL is enabled, but no certfile was specified'
-    fi
-
-    if ! hass.config.has_value 'keyfile'; then
-        hass.die 'SSL is enabled, but no keyfile was specified'
-    fi
-
-    if ! hass.file_exists "/ssl/$(hass.config.get 'certfile')"; then
-        hass.die 'The configured certfile is not found'
-    fi
-
-    if ! hass.file_exists "/ssl/$(hass.config.get 'keyfile')"; then
-        hass.die 'The configured keyfile is not found'
-    fi
-fi
+# Check SSL settings
+bashio::config.require.ssl
