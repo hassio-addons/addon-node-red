@@ -34,7 +34,6 @@
     "ssl"
   ],
   "options": {
-    "log_level": "info",
     "credential_secret": "",
     "dark_mode": false,
     "http_node": {
@@ -55,7 +54,7 @@
     "init_commands": []
   },
   "schema": {
-    "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
+    "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)?",
     "credential_secret": "str",
     "dark_mode": "bool",
     "http_node": {

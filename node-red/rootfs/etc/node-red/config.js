@@ -93,9 +93,11 @@ if (options.http_static.username) {
 }
 
 // Set debug level
-config.logging.console.level = options.log_level.toLowerCase();
-if (config.logging.console.level === 'warning') {
-    config.logging.console.level = 'warn';
+if (options.log_level) {
+    config.logging.console.level = options.log_level.toLowerCase();
+    if (config.logging.console.level === 'warning') {
+        config.logging.console.level = 'warn';
+    }
 }
 
 module.exports = config;
