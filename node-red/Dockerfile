@@ -32,7 +32,7 @@ RUN \
     \
     && paxctl -cm "$(command -v node)" \
     \
-    && npm install -g modclean \
+    && npm install -g modclean@3.0.0-beta.1 \
     \
     && pip install --no-cache-dir -r /opt/requirements.txt \
     \
