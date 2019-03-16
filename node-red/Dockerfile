@@ -14,8 +14,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        gcc=6.4.0-r9 \
         g++=8.2.0-r2 \
+        gcc=8.2.0-r2 \
         libc-dev=0.7.1-r0 \
         linux-headers=4.4.6-r2 \
         make=4.2.1-r2 \
