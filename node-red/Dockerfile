@@ -32,15 +32,13 @@ RUN \
     \
     && paxctl -cm "$(command -v node)" \
     \
+    && npm install -g modclean \
+    \
     && pip install --no-cache-dir -r /opt/requirements.txt \
     \
     && npm install \
         --no-optional \
         --only=production \
-    \
-    && npm cache clear --force \
-    \
-    && apk del --purge --force-broken-world .build-dependencies \
     \
     && curl -J -L -o /tmp/theme.zip \
         "https://github.com/bonanitech/midnight-red/archive/v0.2.9.zip" \
@@ -49,6 +47,16 @@ RUN \
     && mv /tmp/midnight-red-0.2.9/midnight.css /etc/node-red/ \
     && mv /tmp/midnight-red-0.2.9/theme-tomorrow.js /etc/node-red/ \
     \
+    && modclean \
+        --path /opt \
+        --no-progress \
+        --keep-empty \
+        --run \
+    \
+    && npm uninstall -g modclean \
+    && npm cache clear --force \
+    \
+    && apk del --no-cache --purge .build-dependencies \
     && rm -fr /tmp/*
 
 # Copy root filesystem
