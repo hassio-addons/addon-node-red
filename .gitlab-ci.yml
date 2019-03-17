@@ -5,6 +5,7 @@ variables:
   ADDON_GITHUB_REPO: "hassio-addons/addon-node-red"
   ADDON_SLUG: "node-red"
   ADDON_TARGET: "node-red"
+  ADDON_LEGACY_TAGS: "true"
 
   ADDON_AARCH64_BASE: "hassioaddons/base-aarch64:3.0.0"
   ADDON_AMD64_BASE: "hassioaddons/base-amd64:3.0.0"
