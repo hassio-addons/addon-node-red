@@ -18,7 +18,7 @@
         "node-red-contrib-bigtimer": "2.1.9",
         "node-red-contrib-cast": "0.2.6",
         "node-red-contrib-counter": "0.1.5",
-        "node-red-contrib-home-assistant-websocket": "0.10.1",
+        "node-red-contrib-home-assistant-websocket": "0.10.2",
         "node-red-contrib-http-request": "0.1.13",
         "node-red-contrib-influxdb": "0.2.2",
         "node-red-contrib-interval-length": "0.0.3",
