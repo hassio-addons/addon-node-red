@@ -75,7 +75,6 @@ Example add-on configuration:
     "username": "MarryPoppins",
     "password": "Supercalifragilisticexpialidocious"
   },
-  "port": 1880,
   "ssl": true,
   "certfile": "fullchain.pem",
   "keyfile": "privkey.pem",
@@ -113,16 +112,13 @@ more severe level, e.g., `debug` also shows `info` messages. By default,
 the `log_level` is set to `info`, which is the recommended setting unless
 you are troubleshooting.
 
-### Option: `port`
-
-The default port for Node-RED is `1880`, but sometimes you'd just like to
-have it on another port, right? Remember, if you change to port,
-be sure it is not in use by something else already!
-
 ### Option: `ssl`
 
 Enables/Disables SSL (HTTPS) on the web interface.
 Set it `true` to enable it, `false` otherwise.
+
+**Note**: _The SSL settings only apply to direct access and has no effect
+on the Hass.io Ingress service._
 
 ### Option: `certfile`
 
