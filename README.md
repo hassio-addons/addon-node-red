@@ -43,10 +43,9 @@ comparison to installing any other Hass.io add-on.
 1. Install the "Node-RED" add-on.
 1. Set a `credential_secret`, which is used to encrypt sensitive data.
    This is just a "password", which you should save on a secondary location.
-1. If you do NOT use SSL, be sure to set the `ssl` option to `false`.
 1. Start the "Node-RED" add-on.
 1. Check the logs of "Node-RED" to see if everything went well.
-1. Log in with your Home Assistant username/password.
+1. Click on the "OPEN WEB UI" button to jump into Node-RED.
 1. The add-on works straight out the box! No need to configure a server!
 
 **Note**: The add-on is **pre-configured** out of the box! There is no need
