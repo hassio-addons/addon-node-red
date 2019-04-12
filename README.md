@@ -217,65 +217,6 @@ username and password empty.
 **Note**: _We STRONGLY suggest, not to use this, even if this add-on is
 only exposed to your internal network. USE AT YOUR OWN RISK!_
 
-## Embedding into Home Assistant
-
-It is possible to embed the Node-RED interface directly into
-Home Assistant, allowing you to access it through the Home Assistant frontend.
-
-Home Assistant provides the `panel_iframe` component, for these purposes.
-
-Example configuration:
-
-```yaml
-panel_iframe:
-  nodered:
-    title: Node-RED
-    icon: mdi:sitemap
-    url: http://addres.to.your.hass.io:1880
-```
-
-## FAQ
-
-### I'm having all kinds of issues after upgrading to v1.x.x
-
-A lot has changed, since v1.0.0. Maybe you've missed the release/upgrade notes?
-Please be sure to read them and to follow the upgrade instructions.
-
-<https://github.com/hassio-addons/addon-node-red/releases/tag/v1.0.0>
-
-### I'm unable to log in, after upgrading to v1.x.x
-
-The login uses Home Assistant's authentication system. You can now login using
-the same username and password as you use to log on to
-the Home Assistant frontend.
-
-### Node-RED could not establish connection
-
-So, this is like the most asked question. It involves messages in the error
-logs that look like this:
-
-```text
-Home assistant connection failed with error: Connection to home assistant could
-not be established with config: http://XXXXX.duckdns.org <password redacted>
-```
-
-The solution to this is simple:
-
-- Click on one of the Home Assistant nodes in your flow.
-- Click on the little edit button, next to the server name.
-- Change the URL to: `http://hassio/homeassistant`.
-- Save it, and deploy your flow!
-- Now the add-on handles the authentication for you.
-
-### The configured certfile is not found
-
-This error is shown when you have enabled `ssl` in the add-on option,
-but the SSL certificate files are not found on disk.
-
-Either correct the `certfile` in case you are using SSL, get an SSL certificate
-(which you actually should) OR disable the `ssl` feature by setting the
-configuration option to `false`.
-
 ## Changelog & Releases
 
 This repository keeps a change log using [GitHub's releases][releases]
