@@ -55,26 +55,12 @@ if (options.dark_mode) {
 config.debugUseColors = false;
 config.flowFile = 'flows.json';
 config.nodesDir = '/config/node-red/nodes';
-config.uiHost = '0.0.0.0';
+config.uiHost = '127.0.0.1';
+config.uiPort = 46836;
 config.userDir = '/config/node-red/';
 
 // Several settings
 config.credentialSecret = getSecret(options.credential_secret);
-config.uiPort = options.port;
-
-// Enable authentication
-if (!options.leave_front_door_open) {
-    config.adminAuth = require('/etc/node-red/ha-auth.js');
-}
-
-// Set SSL if enabled
-if (options.ssl === true) {
-    config.https = {
-        key: fs.readFileSync(`/ssl/${getSecret(options.keyfile)}`),
-        cert: fs.readFileSync(`/ssl/${getSecret(options.certfile)}`),
-    };
-    config.requireHttps = options.require_ssl;
-}
 
 // Secure HTTP node
 if (options.http_node.username) {

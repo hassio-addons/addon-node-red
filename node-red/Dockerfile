@@ -24,6 +24,9 @@ RUN \
     \
     && apk add --no-cache \
         git=2.20.1-r0 \
+        lua-resty-http=0.12-r1 \
+        nginx-mod-http-lua=1.14.2-r0 \
+        nginx=1.14.2-r0 \
         nodejs=10.14.2-r0 \
         npm=10.14.2-r0 \
         openssh-client=7.9_p1-r4 \
@@ -59,7 +62,9 @@ RUN \
     && npm cache clear --force \
     \
     && apk del --no-cache --purge .build-dependencies \
-    && rm -fr /tmp/*
+    && rm -fr \
+        /tmp/* \
+        /etc/nginx
 
 # Copy root filesystem
 COPY rootfs /
