@@ -5,7 +5,7 @@
 # ==============================================================================
 
 # Wait for Node-RED to become available
-bashio::net.wait_for 46836
+bashio::net.wait_for 46836 localhost 300
 
 bashio::log.info "Starting NGinx..."
 
