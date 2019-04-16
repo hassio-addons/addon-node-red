@@ -59,6 +59,9 @@ config.uiHost = '127.0.0.1';
 config.uiPort = 46836;
 config.userDir = '/config/node-red/';
 
+// Disable authentication, let HA handle that
+config.adminAuth = null;
+
 // Several settings
 config.credentialSecret = getSecret(options.credential_secret);
 
