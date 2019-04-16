@@ -8,7 +8,7 @@
   "ingress": true,
   "ingress_port": 0,
   "startup": "application",
-  "homeassistant": "0.91.3",
+  "homeassistant": "0.91.4",
   "arch": [
     "aarch64",
     "amd64",
