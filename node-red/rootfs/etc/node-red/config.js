@@ -62,6 +62,9 @@ config.userDir = '/config/node-red/';
 // Disable authentication, let HA handle that
 config.adminAuth = null;
 
+// Disable SSL, since the add-on handles that
+config.https = null;
+
 // Several settings
 config.credentialSecret = getSecret(options.credential_secret);
 
