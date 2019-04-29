@@ -167,6 +167,9 @@ the following properties can be used:
 
 **Note**: _These options support secrets, e.g., `!secret red_password`._
 
+**Note**: _In order to expose the http_node without disabling authentication for
+the main site please expose them using the path /httpnode/someaction.
+
 ### Option: `http_static`
 
 To password protect the static content (httpStatic), the following
