@@ -9,7 +9,7 @@ server {
         proxy_pass http://backend;
     }
     
-    location /httpnode/ {
+    location /red-nodes/ {
         proxy_pass http://backend;
     }
 }

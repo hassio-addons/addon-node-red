@@ -167,8 +167,9 @@ the following properties can be used:
 
 **Note**: _These options support secrets, e.g., `!secret red_password`._
 
-**Note**: _In order to expose the http_node without disabling authentication for
-the main site please expose them using the path /httpnode/someaction.
+**Note**: _In order to use the http_node you will need to expose Node-Red using
+a network port in addition to ingress. The http nodes will also be presented
+under /red_nodes/ as shown in the UI._
 
 ### Option: `http_static`
 

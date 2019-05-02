@@ -13,7 +13,7 @@ server {
         access_by_lua_file /etc/nginx/lua/ha-auth.lua;
         proxy_pass http://backend;
     }
-    location /httpnode/ {
+    location /red-nodes/ {
         proxy_pass http://backend;
     }
 }
