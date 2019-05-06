@@ -60,5 +60,3 @@ if bashio::fs.file_exists "/config/node-red/package.json"; then
         node-red-contrib-home-assistant-ws \
             || bashio::exit.nok "Failed un-installing conflicting packages"
 fi
-# Set base path for http-nodes
-sed -i "s~//httpNodeRoot:~httpNodeRoot:~" "/config/node-red/settings.js"
