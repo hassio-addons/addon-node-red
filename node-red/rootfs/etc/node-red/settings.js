@@ -36,6 +36,7 @@
  * - httpNodeAuth (http_node settings in the add-on configuration)
  * - httpStaticAuth (http_static settings in the add-on configuration)
  * - requireHttps (require_ssl setting in the add-on configuration)
+ * - httpNodeRoot (set fixed to `/red-nodes` )
  *
  * If you like to change those settings, some are available via the add-on
  * settings/option in the Hass.io panel in Home Assistant.
@@ -76,12 +77,6 @@ module.exports = {
     // The following property can be used to specify a different root path.
     // If set to false, this is disabled.
     //httpAdminRoot: '/admin',
-
-    // Some nodes, such as HTTP In, can be used to listen for incoming http requests.
-    // By default, these are served relative to '/'. The following property
-    // can be used to specifiy a different root path. If set to false, this is
-    // disabled.
-    //httpNodeRoot: '/red-nodes',
 
     // The following property can be used in place of 'httpAdminRoot' and 'httpNodeRoot',
     // to apply the same root to both parts.
