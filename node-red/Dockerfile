@@ -20,7 +20,7 @@ RUN \
         linux-headers=4.18.13-r1 \
         make=4.2.1-r2 \
         py2-pip=18.1-r0 \
-        python2-dev=2.7.15-r3 \
+        python2-dev=2.7.16-r1 \
     \
     && apk add --no-cache \
         git=2.20.1-r0 \
