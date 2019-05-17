@@ -13,4 +13,8 @@ server {
         access_by_lua_file /etc/nginx/lua/ha-auth.lua;
         proxy_pass http://backend;
     }
+
+    location /endpoint/ {
+        proxy_pass http://backend;
+    }
 }
