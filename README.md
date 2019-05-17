@@ -159,7 +159,7 @@ see the GitHub repository of this theme:
 
 ### Option: `http_node`
 
-To password protect the node-defined HTTP endpoints (httpNodeRoot),
+To password protect the node-defined HTTP endpoints (`httpNodeRoot`),
 the following properties can be used:
 
 - `username`
@@ -167,9 +167,9 @@ the following properties can be used:
 
 **Note**: _These options support secrets, e.g., `!secret red_password`._
 
-**Note**: _In order to use the http_node you will need to expose Node-Red using
-a network port in addition to ingress. The http nodes will also be presented
-under /endpoint/ as shown in the UI. If using the node-red-dashboard module
+**Note**: _In order to use the `http_node` you will need to expose Node-RED using
+a network port in addition to ingress. The HTTP nodes will also be presented
+under `/endpoint/` as shown in the UI. If using the `node-red-dashboard` module
 this will also be hosted under this path and will use any credentials set here._
 
 ### Option: `http_static`
