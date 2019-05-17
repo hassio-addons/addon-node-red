@@ -60,7 +60,7 @@ config.uiPort = 46836;
 config.userDir = '/config/node-red/';
 
 //Set path for HTTP_Nodes to be served from avoiding lua auth
-config.httpNodeRoot = '/red-nodes';
+config.httpNodeRoot = '/endpoint';
 
 // Disable authentication, let HA handle that
 config.adminAuth = null;
