@@ -222,6 +222,24 @@ username and password empty.
 **Note**: _We STRONGLY suggest, not to use this, even if this add-on is
 only exposed to your internal network. USE AT YOUR OWN RISK!_
 
+## Known issues and limitations
+
+- While this add-on ships with Node-RED Dashboard, it currently does not
+  support accessing the dashboard via Hass.io Ingress. This is an technical
+  limitation on the Node-RED Dashboard end.
+
+- Node-RED Dark theme does not play nice with Node-RED Dashboard.
+  Therefore, it is strongly advised to disable `dark_mode` when using
+  the Node-RED Dashboard.
+
+- If you cannot access HTTP nodes or Node-RED Dashboard, please check
+  if you have enabled direct access mode by setting a port number in
+  "Network" configuration section of the add-on.
+
+- If you cannot access HTTP nodes or Node-RED Dashboard, please check
+  if you URL starts with `/endpoint/`, or else Home Assistant authentication
+  will kick in.
+
 ## Changelog & Releases
 
 This repository keeps a change log using [GitHub's releases][releases]
