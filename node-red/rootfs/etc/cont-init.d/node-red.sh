@@ -84,3 +84,13 @@ if bashio::fs.file_exists "/config/node-red/package.json"; then
         node-red-contrib-home-assistant-ws \
             || bashio::exit.nok "Failed un-installing conflicting packages"
 fi
+
+if bashio::config.true 'dark_mode'; then
+    bashio::log.warning
+    bashio::log.warning "Dark mode is enabled!"
+    bashio::log.warning "Although, this is a nice feature, it currently"
+    bashio::log.warning "does not support Node-RED Dashboard yet."
+    bashio::log.warning
+    bashio::log.warning "Please disable dark mode if you use Node-RED Dashboard"
+    bashio::log.warning
+fi
