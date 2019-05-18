@@ -3,6 +3,7 @@
 # Community Hass.io Add-ons: Node-RED
 # Configures Node-RED before running
 # ==============================================================================
+declare port
 
 # Ensure the credential secret value is set
 if bashio::config.is_empty 'credential_secret'; then
@@ -49,6 +50,29 @@ if ! bashio::fs.directory_exists '/config/node-red/'; then
 
     # Set hass.io token on created flow file
     sed -i "s/%%TOKEN%%/${HASSIO_TOKEN}/" "/config/node-red/flows.json"
+fi
+
+# Patch Node-RED Dashboard
+cd /opt/node_modules/node-red-dashboard || bashio.exit.nok 'Failed cd'
+patch -p1 < /etc/node-red/patches/node-red-dashboard-show-dashboard.patch
+
+# Pass in port & SSL settings from Hassio
+port=$(bashio::addon.port 80)
+sed -i "s/%%PORT%%/${port:-80}/" "/opt/node_modules/node-red-dashboard/nodes/ui_base.html"
+if ! bashio::var.has_value "${port}"; then
+    bashio::log.warning
+    bashio::log.warning "Direct access mode is disabled, Node-RED Dashboard"
+    bashio::log.warning "will not work!"
+    bashio::log.warning
+    bashio::log.warning "Please assign a port in the Network section of this"
+    bashio::log.warning "add-on configuration."
+    bashio::log.warning
+fi
+
+if bashio::config.true 'ssl'; then
+    sed -i "s/%%SSL%%/true/" "/opt/node_modules/node-red-dashboard/nodes/ui_base.html"
+else
+    sed -i "s/%%SSL%%/false/" "/opt/node_modules/node-red-dashboard/nodes/ui_base.html"
 fi
 
 # Ensures conflicting Node-RED packages are absent
