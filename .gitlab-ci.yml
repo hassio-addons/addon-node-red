@@ -7,8 +7,8 @@ variables:
   ADDON_TARGET: "node-red"
   ADDON_LEGACY_TAGS: "true"
 
-  ADDON_AARCH64_BASE: "hassioaddons/base-aarch64:3.1.0"
-  ADDON_AMD64_BASE: "hassioaddons/base-amd64:3.1.0"
-  ADDON_ARMHF_BASE: "hassioaddons/base-armhf:3.1.0"
-  ADDON_ARMV7_BASE: "hassioaddons/base-armv7:3.1.0"
-  ADDON_I386_BASE: "hassioaddons/base-i386:3.1.0"
+  ADDON_AARCH64_BASE: "hassioaddons/base-aarch64:3.1.1"
+  ADDON_AMD64_BASE: "hassioaddons/base-amd64:3.1.1"
+  ADDON_ARMHF_BASE: "hassioaddons/base-armhf:3.1.1"
+  ADDON_ARMV7_BASE: "hassioaddons/base-armv7:3.1.1"
+  ADDON_I386_BASE: "hassioaddons/base-i386:3.1.1"
