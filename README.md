@@ -42,7 +42,7 @@ comparison to installing any other Hass.io add-on.
 1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
 1. Install the "Node-RED" add-on.
 1. Set a `credential_secret`, which is used to encrypt sensitive data.
-   This is just a "password", which you should save on a secondary location.
+   This is just a "password", which you should save in a secondary location.
 1. Start the "Node-RED" add-on.
 1. Check the logs of "Node-RED" to see if everything went well.
 1. Click on the "OPEN WEB UI" button to jump into Node-RED.
@@ -58,7 +58,7 @@ Please read the rest of this document further instructions.
 
 ## Configuration
 
-**Note**: _Remember to restart the add-on when the configuration is changed.
+**Note**: _Remember to restart the add-on when the configuration is changed._
 
 Example add-on configuration:
 
@@ -133,12 +133,12 @@ The private key file to use for SSL.
 
 ### Option: `require_ssl`
 
-This options can be used to cause insecure HTTP connections to be redirected
+This option can be used to cause insecure HTTP connections to be redirected
 to HTTPS. This is recommended when you have SSL enabled.
 
 ### Option: `credential_secret`
 
-Credentials are encrypted by Node-RED in storage, using secret key.
+Credentials are encrypted by Node-RED in storage, using a secret key.
 This option allows you to specify your secret key. This can be anything
 you like, it is just like a password. Be sure to store it somewhere safe.
 You might need it in the future! (e.g., When restoring a backup).
@@ -225,7 +225,7 @@ only exposed to your internal network. USE AT YOUR OWN RISK!_
 ## Known issues and limitations
 
 - While this add-on ships with Node-RED Dashboard, it currently does not
-  support accessing the dashboard via Hass.io Ingress. This is an technical
+  support accessing the dashboard via Hass.io Ingress. This is a technical
   limitation on the Node-RED Dashboard end.
 
 - Node-RED Dark theme does not play nice with Node-RED Dashboard.
