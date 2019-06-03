@@ -26,7 +26,7 @@
     "node-red-contrib-interval-length": "0.0.3",
     "node-red-contrib-looptimer": "0.0.8",
     "node-red-contrib-modbus": "4.1.3",
-    "node-red-contrib-moment": "3.0.2",
+    "node-red-contrib-moment": "3.0.3",
     "node-red-contrib-state-machine": "1.2.0",
     "node-red-contrib-statistics": "2.2.2",
     "node-red-contrib-stoptimer": "0.0.7",
