@@ -5,7 +5,6 @@ server {
     include /etc/nginx/includes/ssl_params.conf;
     include /etc/nginx/includes/proxy_params.conf;
 
-    ssl on;
     ssl_certificate /ssl/%%certfile%%;
     ssl_certificate_key /ssl/%%keyfile%%;
 
