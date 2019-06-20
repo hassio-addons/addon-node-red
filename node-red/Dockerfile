@@ -23,7 +23,7 @@ RUN \
         python2-dev=2.7.16-r1 \
     \
     && apk add --no-cache \
-        git=2.20.1-r0 \
+        git=2.22.0-r0 \
         lua-resty-http=0.13-r0 \
         nginx-mod-http-lua=1.14.2-r1 \
         nginx=1.14.2-r1 \
