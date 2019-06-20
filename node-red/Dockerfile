@@ -25,8 +25,8 @@ RUN \
     && apk add --no-cache \
         git=2.22.0-r0 \
         lua-resty-http=0.13-r0 \
-        nginx-mod-http-lua=1.14.2-r1 \
-        nginx=1.14.2-r1 \
+        nginx-mod-http-lua=1.16.0-r2 \
+        nginx=1.16.0-r2 \
         nodejs=10.14.2-r0 \
         npm=10.14.2-r0 \
         openssh-client=7.9_p1-r5 \
