@@ -22,7 +22,7 @@
     "node-red-contrib-counter": "0.1.5",
     "node-red-contrib-home-assistant-websocket": "0.12.3",
     "node-red-contrib-http-request": "0.1.13",
-    "node-red-contrib-influxdb": "0.2.2",
+    "node-red-contrib-influxdb": "0.3.0",
     "node-red-contrib-interval-length": "0.0.3",
     "node-red-contrib-looptimer": "0.0.8",
     "node-red-contrib-modbus": "4.1.3",
