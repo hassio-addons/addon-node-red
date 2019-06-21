@@ -155,7 +155,7 @@ When set to `true`, the Midnight Node-RED theme by [Mauricio Bonani][bonanitech]
 will be enabled. For more information and a glance at how it looks,
 see the GitHub repository of this theme:
 
-<https://github.com/bonanitech/midnight-red>
+<https://github.com/bonanitech/node-red-contrib-theme-midnight-red>
 
 ### Option: `http_node`
 
