@@ -235,7 +235,7 @@ To do so, open the file with a text editor and add the following above the
 
 The time zone will need to reflect your environment.
 
-Save the file and restartthe Node-RED add-on.
+Save the file and restart the Node-RED add-on.
 
 ## Known issues and limitations
 
