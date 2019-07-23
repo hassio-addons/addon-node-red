@@ -222,19 +222,20 @@ username and password empty.
 **Note**: _We STRONGLY suggest, not to use this, even if this add-on is
 only exposed to your internal network. USE AT YOUR OWN RISK!_
 
-## Timezone Configuration
+## Time zone configuration
 
-The addon will use the configured Timezone of the underlying operating system.
+The addon will use the configured time zone of the underlying operating system.
 If this is incorrect (for example with HassOS this will be UTC), this can be
-configured in the ```/config/node-red/settings.js``` file.
+configured in the `/config/node-red/settings.js` file.
 
 To do so, open the file with a text editor and add the following above the
-```module.exports = {``` line.
+`module.exports = {` line.
 
-```process.env.TZ = "America/Toronto";```
+`process.env.TZ = "America/Toronto";`
 
-The timezone will need to reflect your environment. Save the file and restart
-the Node-Red addon.
+The time zone will need to reflect your environment.
+
+Save the file and restartthe Node-RED add-on.
 
 ## Known issues and limitations
 
