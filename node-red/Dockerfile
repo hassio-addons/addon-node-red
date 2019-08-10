@@ -30,7 +30,7 @@ RUN \
         nodejs=10.16.0-r0 \
         npm=10.16.0-r0 \
         openssh-client=8.0_p1-r0 \
-        patch=2.7.6-r5 \
+        patch=2.7.6-r6 \
         paxctl=0.9-r0 \
         python2=2.7.16-r1 \
     \
