@@ -35,3 +35,10 @@ patch:
         patched: '2019-07-04T02:23:00.241Z'
     - node-red > node-red-node-email > mailparser > html-to-text > lodash:
         patched: '2019-07-04T02:23:00.241Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - node-red > @node-red/nodes > https-proxy-agent:
+        patched: '2019-10-03T20:59:34.305Z'
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-03T20:59:34.305Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-03T20:59:34.305Z'
