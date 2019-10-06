@@ -7,7 +7,6 @@ const bcrypt = require('bcryptjs');
 if (options.dark_mode) {
     config.editorTheme.page = {
         css: '/opt/node_modules/node-red-contrib-theme-midnight-red/midnight.css',
-        scripts: '/opt/node_modules/node-red-contrib-theme-midnight-red/theme-tomorrow.js',
     };
 }
 
