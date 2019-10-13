@@ -44,7 +44,7 @@
     "node-red-node-serialport": "0.8.8",
     "node-red-node-smooth": "0.1.2",
     "node-red-node-suncalc": "0.0.11",
-    "snyk": "1.230.2"
+    "snyk": "^1.230.5"
   },
   "engines": {
     "node": "4.*.*"
