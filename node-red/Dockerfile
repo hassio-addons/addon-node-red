@@ -41,7 +41,9 @@ RUN \
     && pip install --no-cache-dir -r /opt/requirements.txt \
     \
     && npm install \
+        --no-audit \
         --no-optional \
+        --no-update-notifier \
         --only=production \
         --unsafe-perm \
     \
