@@ -38,21 +38,13 @@ RUN \
     \
     && npm config set unsafe-perm true \
     \
-    && npm install -g modclean@3.0.0-beta.1 \
-    \
     && pip install --no-cache-dir -r /opt/requirements.txt \
     \
     && npm install \
         --no-optional \
         --only=production \
+        --unsafe-perm \
     \
-    && modclean \
-        --path /opt \
-        --no-progress \
-        --keep-empty \
-        --run \
-    \
-    && npm uninstall -g modclean \
     && npm cache clear --force \
     \
     && apk del --no-cache --purge .build-dependencies \
