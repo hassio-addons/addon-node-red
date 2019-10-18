@@ -165,14 +165,12 @@ module.exports = {
     paletteCategories: [
         'home_assistant',
         'subflows',
-        'input',
-        'output',
+        'common',
         'function',
-        'social',
-        'mobile',
-        'storage',
-        'analysis',
-        'advanced'
+        'network',
+        'sequence',
+        'parser',
+        'storage'
     ],
 
     // Configure the logging output
