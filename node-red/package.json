@@ -49,7 +49,7 @@
     "node-red-node-smooth": "0.1.2",
     "node-red-node-suncalc": "0.0.11",
     "node-red-node-twitter": "1.1.5",
-    "snyk": "1.236.0"
+    "snyk": "1.236.1"
   },
   "engines": {
     "node": ">=10"
