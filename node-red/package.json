@@ -40,7 +40,7 @@
     "node-red-node-email": "1.7.1",
     "node-red-node-feedparser": "0.1.14",
     "node-red-node-geofence": "0.1.2",
-    "node-red-node-msgpack": "1.1.3",
+    "node-red-node-msgpack": "1.2.0",
     "node-red-node-pi-gpio": "1.0.6",
     "node-red-node-ping": "0.0.16",
     "node-red-node-random": "0.1.4",
