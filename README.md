@@ -39,8 +39,7 @@ runtime in a single click.
 The installation of this add-on is pretty straightforward and not different in
 comparison to installing any other Hass.io add-on.
 
-1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
-1. Install the "Node-RED" add-on.
+1. Search for the "Node-RED" add-on in the Hass.io add-on store and install it.
 1. Set a `credential_secret`, which is used to encrypt sensitive data.
    This is just a "password", which you should save in a secondary location.
 1. Start the "Node-RED" add-on.
@@ -52,9 +51,6 @@ comparison to installing any other Hass.io add-on.
 to add/change/update the server connection settings!
 
 Please read the rest of this document further instructions.
-
-**NOTE**: Do not add this repository to Hass.io, please use:
-`https://github.com/hassio-addons/repository`.
 
 ## Configuration
 
