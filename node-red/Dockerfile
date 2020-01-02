@@ -20,7 +20,7 @@ RUN \
         linux-headers=4.19.36-r0 \
         make=4.2.1-r2 \
         py2-pip=18.1-r0 \
-        python2-dev=2.7.16-r1 \
+        python2-dev=2.7.16-r3 \
     \
     && apk add --no-cache \
         git=2.22.2-r0 \
@@ -32,7 +32,7 @@ RUN \
         openssh-client=8.1_p1-r0 \
         patch=2.7.6-r6 \
         paxctl=0.9-r0 \
-        python2=2.7.16-r1 \
+        python2=2.7.16-r3 \
     \
     && paxctl -cm "$(command -v node)" \
     \
