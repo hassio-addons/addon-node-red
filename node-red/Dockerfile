@@ -27,8 +27,8 @@ RUN \
         lua-resty-http=0.15-r0 \
         nginx-mod-http-lua=1.16.1-r4 \
         nginx=1.16.1-r4  \
-        nodejs=10.16.3-r0 \
-        npm=10.16.3-r0 \
+        nodejs=12.14.0-r0 \
+        npm=12.14.0-r0 \
         openssh-client=8.1_p1-r0 \
         patch=2.7.6-r6 \
         paxctl=0.9-r0 \
