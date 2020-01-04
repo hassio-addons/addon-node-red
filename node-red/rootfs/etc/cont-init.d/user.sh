@@ -21,12 +21,16 @@ if bashio::config.has_value 'npm_packages'; then
 
     bashio::log.info "Starting installation of custom NPM/Node-RED packages..."
     for package in $(bashio::config 'npm_packages'); do
-        npm install \
-            --no-optional \
-            --only=production \
-            "$package" \
-                || bashio::exit.nok "Failed installing npm package ${package}"
+        npmlist+="$package "
     done
+
+    bashio::log.debug "Installing packages:$npmlist"
+    # shellcheck disable=SC2086
+    npm install \
+        --no-optional \
+        --only=production \
+        $npmlist \
+           || bashio::exit.nok "Failed to install a specified npm package"
 fi
 
 # Executes user commands on startup
