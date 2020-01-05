@@ -4,6 +4,8 @@
 # Executes user customizations on startup
 # ==============================================================================
 
+declare -a npmlist
+
 # Install user configured/requested packages
 if bashio::config.has_value 'system_packages'; then
     apk update \
@@ -21,15 +23,13 @@ if bashio::config.has_value 'npm_packages'; then
 
     bashio::log.info "Starting installation of custom NPM/Node-RED packages..."
     for package in $(bashio::config 'npm_packages'); do
-        npmlist+="$package "
+        npmlist+=("$package")
     done
 
-    bashio::log.debug "Installing packages:$npmlist"
-    # shellcheck disable=SC2086
     npm install \
         --no-optional \
         --only=production \
-        $npmlist \
+        "${npmlist[@]}" \
            || bashio::exit.nok "Failed to install a specified npm package"
 fi
 
