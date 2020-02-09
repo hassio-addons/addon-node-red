@@ -10,13 +10,7 @@
   "panel_icon": "mdi:sitemap",
   "startup": "application",
   "homeassistant": "0.92.0b2",
-  "arch": [
-    "aarch64",
-    "amd64",
-    "armhf",
-    "armv7",
-    "i386"
-  ],
+  "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
   "ports": {
     "80/tcp": 1880
   },
@@ -31,18 +25,10 @@
   "auth_api": true,
   "auto_uart": true,
   "gpio": true,
-  "privileged": [
-    "SYS_RAWIO"
-  ],
-  "devices": [
-    "/dev/mem:/dev/mem:rwm"
-  ],
+  "privileged": ["SYS_RAWIO"],
+  "devices": ["/dev/mem:/dev/mem:rwm"],
   "apparmor": false,
-  "map": [
-    "config:rw",
-    "share:rw",
-    "ssl"
-  ],
+  "map": ["config:rw", "share:rw", "ssl"],
   "options": {
     "credential_secret": "",
     "dark_mode": false,
@@ -63,16 +49,16 @@
     "init_commands": []
   },
   "schema": {
-    "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)?",
-    "credential_secret": "str",
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
+    "credential_secret": "password",
     "dark_mode": "bool",
     "http_node": {
       "username": "str",
-      "password": "str"
+      "password": "password"
     },
     "http_static": {
       "username": "str",
-      "password": "str"
+      "password": "password"
     },
     "ssl": "bool",
     "certfile": "str",
