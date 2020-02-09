@@ -1,8 +1,8 @@
 ---
 repository:
-  description: "Node-RED - Community Hass.io Add-on for Home Assistant"
+  description: "Node-RED - Community Home Assistant Add-ons"
   homepage: https://addons.community
-  topics: node-red, hassio-addon, hassio-addons, hassio, hass, home-assistant, homeassistant
+  topics: node-red, addon, home-assistant, homeassistant
   private: false
   has_issues: true
   has_projects: false

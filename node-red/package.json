@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "hassio-addon-node-red",
+  "name": "addon-node-red",
   "description": "A visual tool for wiring the Internet of Things",
   "homepage": "https://addons.community",
   "repository": "https://github.com/hassio-addons/addon-node-red",

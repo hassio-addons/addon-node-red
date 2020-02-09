@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Community Hass.io Add-ons: Node-RED
+# Community Home Assistant Add-on: Node-RED
 # Starts Node-RED
 # ==============================================================================
 export NODE_PATH=/opt/node_modules:/data/node_modules

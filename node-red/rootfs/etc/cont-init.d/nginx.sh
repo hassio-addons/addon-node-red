@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Community Hass.io Add-ons: Node-RED
+# Community Home Assistant Add-on: Node-RED
 # Configures NGINX for use with Node-RED
 # ==============================================================================
 declare admin_port

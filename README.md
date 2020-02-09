@@ -1,4 +1,4 @@
-# Community Hass.io Add-ons: Node-RED
+# Community Home Assistant Add-on: Node-RED
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
@@ -37,9 +37,10 @@ runtime in a single click.
 ## Installation
 
 The installation of this add-on is pretty straightforward and not different in
-comparison to installing any other Hass.io add-on.
+comparison to installing any other Home Assistant add-on.
 
-1. Search for the "Node-RED" add-on in the Hass.io add-on store and install it.
+1. Search for the "Node-RED" add-on in the Home Assistant add-on store and
+   install it.
 1. Set a `credential_secret`, which is used to encrypt sensitive data.
    This is just a "password", which you should save in a secondary location.
 1. Start the "Node-RED" add-on.
@@ -113,19 +114,19 @@ Enables/Disables SSL (HTTPS) on the web interface.
 Set it `true` to enable it, `false` otherwise.
 
 **Note**: _The SSL settings only apply to direct access and has no effect
-on the Hass.io Ingress service._
+on the Ingress service._
 
 ### Option: `certfile`
 
 The certificate file to use for SSL.
 
-**Note**: _The file MUST be stored in `/ssl/`, which is the default for Hass.io_
+**Note**: _The file MUST be stored in `/ssl/`, which is the default_
 
 ### Option: `keyfile`
 
 The private key file to use for SSL.
 
-**Note**: _The file MUST be stored in `/ssl/`, which is the default for Hass.io_
+**Note**: _The file MUST be stored in `/ssl/`, which is the default_
 
 ### Option: `require_ssl`
 
@@ -236,8 +237,8 @@ Save the file and restart the Node-RED add-on.
 ## Known issues and limitations
 
 - While this add-on ships with Node-RED Dashboard, it currently does not
-  support accessing the dashboard via Hass.io Ingress. This is a technical
-  limitation on the Node-RED Dashboard end.
+  support accessing the dashboard via Ingress. This is a technical limitation
+  on the Node-RED Dashboard end.
 
 - If you cannot access HTTP nodes or Node-RED Dashboard, please check
   if you have enabled direct access mode by setting a port number in
@@ -293,11 +294,11 @@ The original setup of this repository is by [Franck Nijhof][frenck].
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
 
-## We have got some Hass.io add-ons for you
+## We have got some Home Assistant add-ons for you
 
-Want some more functionality to your Hass.io Home Assistant instance?
+Want some more functionality to your Home Assistant instance?
 
-We have created multiple add-ons for Hass.io. For a full list, check out
+We have created multiple add-ons for Home Assistant. For a full list, check out
 our [GitHub Repository][repository].
 
 ## License
