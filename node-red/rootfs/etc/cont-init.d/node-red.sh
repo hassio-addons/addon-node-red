@@ -48,15 +48,15 @@ if ! bashio::fs.directory_exists '/config/node-red/'; then
     id=$(node -e "console.log((1+Math.random()*4294967295).toString(16));")
     sed -i "s/%%ID%%/${id}/" "/config/node-red/flows.json"
 
-    # Set hass.io token on created flow file
-    sed -i "s/%%TOKEN%%/${HASSIO_TOKEN}/" "/config/node-red/flows.json"
+    # Set Supervisor token on created flow file
+    sed -i "s/%%TOKEN%%/${SUPERVISOR_TOKEN}/" "/config/node-red/flows.json"
 fi
 
 # Patch Node-RED Dashboard
 cd /opt/node_modules/node-red-dashboard || bashio.exit.nok 'Failed cd'
 patch -p1 < /etc/node-red/patches/node-red-dashboard-show-dashboard.patch
 
-# Pass in port & SSL settings from Hassio
+# Pass in port & SSL settings
 port=$(bashio::addon.port 80)
 sed -i "s/%%PORT%%/${port:-80}/" "/opt/node_modules/node-red-dashboard/nodes/ui_base.html"
 if ! bashio::var.has_value "${port}"; then
