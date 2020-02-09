@@ -59,33 +59,26 @@ Please read the rest of this document further instructions.
 
 Example add-on configuration:
 
-```json
-{
-  "log_level": "info",
-  "credential_secret": "KJHhfdhiFRENCKfsdfdsDHFHDJS",
-  "http_node": {
-    "username": "MarryPoppins",
-    "password": "Supercalifragilisticexpialidocious"
-  },
-  "http_static": {
-    "username": "MarryPoppins",
-    "password": "Supercalifragilisticexpialidocious"
-  },
-  "ssl": true,
-  "certfile": "fullchain.pem",
-  "keyfile": "privkey.pem",
-  "require_ssl": true,
-  "system_packages": [
-    "ffmpeg"
-  ],
-  "npm_packages": [
-    "node-red-admin"
-  ],
-  "init_commands": [
-    "echo 'This is a test'",
-    "echo 'So is this...'"
-  ]
-}
+```yaml
+log_level: info
+credential_secret: KJHhfdhiFRENCKfsdfdsDHFHDJS
+http_node:
+  username: MarryPoppins
+  password: Supercalifragilisticexpialidocious
+http_static:
+  username: MarryPoppins
+  password: Supercalifragilisticexpialidocious
+ssl: true
+certfile: fullchain.pem
+keyfile: privkey.pem
+require_ssl: true
+system_packages:
+  - ffmpeg
+npm_packages:
+  - node-red-admin
+init_commands:
+  - echo 'This is a test'
+  - echo 'So is this...'
 ```
 
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
@@ -268,7 +261,7 @@ Got questions?
 
 You have several options to get them answered:
 
-- The [Community Hass.io Add-ons Discord chat server][discord] for add-on
+- The [Community Home Assistant Add-ons Discord chat server][discord] for add-on
   support and feature requests.
 - The [Home Assistant Discord chat server][discord-ha] for general Home
   Assistant discussions and questions.
