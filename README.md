@@ -137,7 +137,7 @@ You might need it in the future! (e.g., When restoring a backup).
 Node-RED from being able to decrypt your existing credentials and they will be
 lost._
 
-**Note**: _This option support secrets, e.g., `!secret red_secret`._
+**Note**: _This option support secrets, e.g., `'!secret red_secret'`.  Surround with apostrophes as shown for proper YAML syntax._
 
 ### Option: `dark_mode`
 
