@@ -1,4 +1,4 @@
-# Community Home Assistant Add-on: Node-RED
+# Home Assistant Community Add-on: Node-RED
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
@@ -261,7 +261,7 @@ Got questions?
 
 You have several options to get them answered:
 
-- The [Community Home Assistant Add-ons Discord chat server][discord] for add-on
+- The [Home Assistant Community Add-ons Discord chat server][discord] for add-on
   support and feature requests.
 - The [Home Assistant Discord chat server][discord-ha] for general Home
   Assistant discussions and questions.

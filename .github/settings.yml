@@ -1,8 +1,8 @@
 ---
 repository:
-  description: "Node-RED - Community Home Assistant Add-ons"
+  description: "Node-RED - Home Assistant Community Add-ons"
   homepage: https://addons.community
-  topics: node-red, addon, home-assistant, homeassistant
+  topics: node-red, addon, addons, home-assistant, homeassistant
   private: false
   has_issues: true
   has_projects: false

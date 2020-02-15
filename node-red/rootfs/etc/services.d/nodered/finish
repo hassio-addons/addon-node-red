@@ -1,6 +1,6 @@
 #!/usr/bin/execlineb -S0
 # ==============================================================================
-# Community Home Assistant Add-on: Node-RED
+# Home Assistant Community Add-on: Node-RED
 # Take down the S6 supervision tree when Node-RED fails
 # ==============================================================================
 if -n { s6-test $# -ne 0 }
