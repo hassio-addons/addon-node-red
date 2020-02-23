@@ -47,9 +47,6 @@ if ! bashio::fs.directory_exists '/config/node-red/'; then
     # Create random flow id
     id=$(node -e "console.log((1+Math.random()*4294967295).toString(16));")
     sed -i "s/%%ID%%/${id}/" "/config/node-red/flows.json"
-
-    # Set Supervisor token on created flow file
-    sed -i "s/%%TOKEN%%/${SUPERVISOR_TOKEN}/" "/config/node-red/flows.json"
 fi
 
 # Patch Node-RED Dashboard
