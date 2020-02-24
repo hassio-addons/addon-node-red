@@ -243,8 +243,8 @@ Save the file and restart the Node-RED add-on.
 
 - If the following error is seen after an update `WARNING (MainThread)
   [hassio.api.proxy] Unauthorized WebSocket access!` please validate the
-  configuration of the Home Assistant server setup in Node Red. This can be
-  found by double clicking any Home Assistant node and selecting the pencil icon
+  configuration of the Home Assistant server setup in Node-RED. This can be
+  found by double-clicking any Home Assistant node and selecting the pencil icon
   by the server name. The checkbox that states `I use the Home Assistant Add-On`
   should be checked.
 
