@@ -31,7 +31,7 @@
     "node-red-contrib-statistics": "2.2.2",
     "node-red-contrib-stoptimer": "0.0.7",
     "node-red-contrib-sunevents": "0.0.5",
-    "node-red-contrib-time-range-switch": "0.6.3",
+    "node-red-contrib-time-range-switch": "1.0.0",
     "node-red-contrib-timecheck": "1.1.0",
     "node-red-contrib-traffic": "0.2.1",
     "node-red-dashboard": "2.19.4",
