@@ -31,7 +31,6 @@
     "node-red-contrib-statistics": "2.2.2",
     "node-red-contrib-stoptimer": "0.0.7",
     "node-red-contrib-sunevents": "0.0.5",
-    "node-red-contrib-theme-midnight-red": "1.0.29",
     "node-red-contrib-time-range-switch": "1.0.0",
     "node-red-contrib-timecheck": "1.1.0",
     "node-red-contrib-traffic": "0.2.1",
@@ -49,7 +48,8 @@
     "node-red-node-smooth": "0.1.2",
     "node-red-node-suncalc": "0.0.12",
     "node-red-node-twitter": "1.1.6",
-    "snyk": "1.296.0"
+    "snyk": "1.296.0",
+    "@node-red-contrib-themes/midnight-red": "1.1.0"
   },
   "engines": {
     "node": ">=10"
