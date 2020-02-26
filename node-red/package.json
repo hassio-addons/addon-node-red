@@ -35,7 +35,7 @@
     "node-red-contrib-timecheck": "1.1.0",
     "node-red-contrib-traffic": "0.2.1",
     "node-red-dashboard": "2.19.4",
-    "node-red-node-base64": "0.2.0",
+    "node-red-node-base64": "0.2.1",
     "node-red-node-email": "1.7.7",
     "node-red-node-feedparser": "0.1.15",
     "node-red-node-geofence": "0.1.2",
