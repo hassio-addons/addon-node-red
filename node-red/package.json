@@ -30,7 +30,7 @@
     "node-red-contrib-state-machine": "1.2.0",
     "node-red-contrib-statistics": "2.2.2",
     "node-red-contrib-stoptimer": "0.0.7",
-    "node-red-contrib-sunevents": "2.0.1",
+    "node-red-contrib-sunevents": "2.0.2",
     "node-red-contrib-time-range-switch": "1.0.0",
     "node-red-contrib-timecheck": "1.1.0",
     "node-red-contrib-traffic": "0.2.1",
