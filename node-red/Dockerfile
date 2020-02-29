@@ -49,6 +49,8 @@ RUN \
     \
     && npm cache clear --force \
     \
+    && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
+    \
     && apk del --no-cache --purge .build-dependencies \
     && rm -fr \
         /tmp/* \
