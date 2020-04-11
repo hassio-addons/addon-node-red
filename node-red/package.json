@@ -40,7 +40,7 @@
     "node-red-node-feedparser": "0.1.15",
     "node-red-node-geofence": "0.1.2",
     "node-red-node-msgpack": "1.2.1",
-    "node-red-node-pi-gpio": "1.0.8",
+    "node-red-node-pi-gpio": "1.0.9",
     "node-red-node-ping": "0.2.0",
     "node-red-node-random": "0.1.4",
     "node-red-node-sentiment": "0.1.6",
