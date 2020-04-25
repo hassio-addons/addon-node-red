@@ -215,8 +215,8 @@ only exposed to your internal network. USE AT YOUR OWN RISK!_
 ## Time zone configuration
 
 The addon will use the configured time zone of the underlying operating system.
-If this is incorrect (for example with HassOS this will be UTC), this can be
-configured in the `/config/node-red/settings.js` file.
+If this is incorrect (for example with the Home Assistant Operating System it
+will be UTC), this can be configured in the `/config/node-red/settings.js` file.
 
 To do so, open the file with a text editor and add the following above the
 `module.exports = {` line.
