@@ -212,6 +212,12 @@ username and password empty.
 **Note**: _We STRONGLY suggest, not to use this, even if this add-on is
 only exposed to your internal network. USE AT YOUR OWN RISK!_
 
+## Configuration folder
+
+The addon will store most of its configuration in the `config/node-red` folder,
+including the `flows.json`. Please ensure this is included in your backup. It is
+also important to note that this will not be removed on uninstalling the addon.
+
 ## Time zone configuration
 
 The addon will use the configured time zone of the underlying operating system.
