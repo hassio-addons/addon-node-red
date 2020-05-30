@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -42,3 +42,36 @@ patch:
         patched: '2019-10-03T20:59:34.305Z'
     - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
         patched: '2019-10-03T20:59:34.305Z'
+  SNYK-JS-LODASH-567746:
+    - node-red-contrib-influxdb > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - node-red-contrib-home-assistant-websocket > lowdb > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > graphlib > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > snyk-config > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - node-red-node-email > mailparser > html-to-text > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2020-04-30T20:07:52.922Z'
