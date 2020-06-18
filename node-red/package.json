@@ -42,7 +42,7 @@
     "node-red-node-msgpack": "1.2.1",
     "node-red-node-pi-gpio": "1.1.1",
     "node-red-node-ping": "0.2.0",
-    "node-red-node-random": "0.1.4",
+    "node-red-node-random": "0.2.0",
     "node-red-node-sentiment": "0.1.6",
     "node-red-node-serialport": "0.10.3",
     "node-red-node-smooth": "0.1.2",
