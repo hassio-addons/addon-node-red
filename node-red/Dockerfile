@@ -28,7 +28,7 @@ RUN \
         nginx-mod-http-lua=1.18.0-r0 \
         nginx=1.18.0-r0  \
         nodejs=12.15.0-r1 \
-        npm=12.15.0-r1 \
+        npm=12.17.0-r0 \
         openssh-client=8.1_p1-r0 \
         patch=2.7.6-r6 \
         paxctl=0.9-r0 \
