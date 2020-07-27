@@ -19,7 +19,7 @@
     "node-red-contrib-alexa-home-skill": "0.1.17",
     "node-red-contrib-bigtimer": "2.3.1",
     "node-red-contrib-cast": "0.2.15",
-    "node-red-contrib-counter": "0.1.5",
+    "node-red-contrib-counter": "0.1.6",
     "node-red-contrib-home-assistant-websocket": "0.22.6",
     "node-red-contrib-http-request": "0.1.14",
     "node-red-contrib-influxdb": "0.4.1",
