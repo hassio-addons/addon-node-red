@@ -29,7 +29,7 @@
   "privileged": ["SYS_RAWIO"],
   "devices": ["/dev/mem:/dev/mem:rwm"],
   "apparmor": false,
-  "map": ["config:rw", "share:rw", "ssl"],
+  "map": ["config:rw", "media:rw", "share:rw", "ssl"],
   "options": {
     "credential_secret": "",
     "dark_mode": false,
