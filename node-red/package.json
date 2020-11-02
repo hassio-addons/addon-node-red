@@ -44,7 +44,7 @@
     "node-red-node-ping": "0.2.1",
     "node-red-node-random": "0.2.0",
     "node-red-node-sentiment": "0.1.6",
-    "node-red-node-serialport": "0.11.0",
+    "node-red-node-serialport": "0.11.1",
     "node-red-node-smooth": "0.1.2",
     "node-red-node-suncalc": "1.0.1",
     "node-red-node-twitter": "1.1.6",
