@@ -14,7 +14,7 @@
   "dependencies": {
     "bcryptjs": "2.4.3",
     "js-yaml": "3.14.0",
-    "node-red": "1.2.5",
+    "node-red": "1.2.6",
     "node-red-contrib-actionflows": "2.0.3",
     "node-red-contrib-alexa-home-skill": "0.1.17",
     "node-red-contrib-bigtimer": "2.6.0",
