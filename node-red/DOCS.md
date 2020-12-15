@@ -21,8 +21,13 @@ comparison to installing any other Home Assistant add-on.
 1. Click on the "OPEN WEB UI" button to jump into Node-RED.
 1. The add-on works straight out the box! No need to configure a server!
 
-**Note**: The add-on is **pre-configured** out of the box! There is no need
-to add/change/update the server connection settings!
+**Important configuration to notice on first start**
+
+1. You might need to set `ssl:false` in the configurations tab if you get a `502: Bad Gateway` error when trying to access the add-on.
+2. Remember to set a value for the `credential_secret` in the add-on configuration, this will be needed to start the add-on.
+
+**Note**: The add-on is **pre-configured** out of the box! There is no need to add/change/update the server connection settings!
+
 
 Please read the rest of this document further instructions.
 
