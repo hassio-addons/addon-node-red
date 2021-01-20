@@ -169,7 +169,7 @@ module.exports = {
     "network",
     "sequence",
     "parser",
-    "storage"
+    "storage",
   ],
 
   // Configure the logging output
@@ -179,15 +179,15 @@ module.exports = {
       // Whether or not to include metric events in the log output
       metrics: false,
       // Whether or not to include audit events in the log output
-      audit: false
-    }
+      audit: false,
+    },
   },
 
   // Customising the editor
   editorTheme: {
     projects: {
       // To enable the Projects feature, set this value to true
-      enabled: false
-    }
-  }
+      enabled: false,
+    },
+  },
 };
