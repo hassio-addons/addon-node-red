@@ -1,12 +1,12 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/node-red"
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: daily
       time: "06:00"
-  - package-ecosystem: "docker"
+  - package-ecosystem: "npm"
     directory: "/node-red"
     schedule:
       interval: daily

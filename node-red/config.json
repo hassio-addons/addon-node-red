@@ -8,7 +8,6 @@
   "ingress": true,
   "ingress_port": 0,
   "panel_icon": "mdi:sitemap",
-  "startup": "application",
   "init": false,
   "homeassistant": "0.92.0b2",
   "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
@@ -18,7 +17,6 @@
   "ports_description": {
     "80/tcp": "Web interface"
   },
-  "boot": "auto",
   "hassio_api": true,
   "hassio_role": "manager",
   "homeassistant_api": true,
