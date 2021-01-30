@@ -19,7 +19,7 @@ RUN \
         libc-dev=0.7.2-r3 \
         linux-headers=5.7.8-r0 \
         make=4.3-r0 \
-        py3-pip=20.3.3-r0 \
+        py3-pip=20.3.4-r0 \
         python3-dev=3.8.7-r0 \
     \
     && apk add --no-cache \
