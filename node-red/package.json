@@ -13,7 +13,7 @@
     "bcryptjs": "2.4.3",
     "js-yaml": "4.0.0",
     "node-red": "1.2.9",
-    "node-red-contrib-actionflows": "2.0.3",
+    "node-red-contrib-actionflows": "2.0.4",
     "node-red-contrib-alexa-home-skill": "0.1.19",
     "node-red-contrib-bigtimer": "2.7.3",
     "node-red-contrib-cast": "0.2.17",
