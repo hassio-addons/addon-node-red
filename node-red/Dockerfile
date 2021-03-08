@@ -25,8 +25,8 @@ RUN \
     && apk add --no-cache \
         git=2.30.1-r0 \
         nginx=1.18.0-r13  \
-        nodejs=14.15.5-r0 \
-        npm=14.15.5-r0 \
+        nodejs=14.16.0-r0 \
+        npm=14.16.0-r0 \
         openssh-client=8.4_p1-r2 \
         patch=2.7.6-r6 \
         python3=3.8.7-r1 \
