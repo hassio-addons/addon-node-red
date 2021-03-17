@@ -39,7 +39,7 @@
     "node-red-node-geofence": "0.2.1",
     "node-red-node-msgpack": "1.2.1",
     "node-red-node-pi-gpio": "1.2.3",
-    "node-red-node-ping": "0.2.2",
+    "node-red-node-ping": "0.3.0",
     "node-red-node-random": "0.4.0",
     "node-red-node-sentiment": "0.1.6",
     "node-red-node-serialport": "0.11.1",
