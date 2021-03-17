@@ -23,7 +23,7 @@ RUN \
         python3-dev=3.8.8-r0 \
     \
     && apk add --no-cache \
-        git=2.30.1-r0 \
+        git=2.30.2-r0 \
         nginx=1.18.0-r13  \
         nodejs=14.16.0-r0 \
         npm=14.16.0-r0 \
