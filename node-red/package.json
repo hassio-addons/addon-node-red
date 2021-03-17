@@ -35,7 +35,7 @@
     "node-red-dashboard": "2.28.1",
     "node-red-node-base64": "0.3.0",
     "node-red-node-email": "1.9.0",
-    "node-red-node-feedparser": "0.1.16",
+    "node-red-node-feedparser": "0.2.0",
     "node-red-node-geofence": "0.2.1",
     "node-red-node-msgpack": "1.2.1",
     "node-red-node-pi-gpio": "1.2.3",
