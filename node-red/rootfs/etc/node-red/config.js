@@ -9,6 +9,12 @@ if (options.dark_mode) {
     css: "/opt/node_modules/@node-red-contrib-themes/midnight-red/theme.css",
   };
 }
+// Set theme
+else if (options.theme) {
+  config.editorTheme = {
+    theme: options.theme,
+  };
+}
 
 // Sane and required defaults for the add-on
 config.debugUseColors = false;
