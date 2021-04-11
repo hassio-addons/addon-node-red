@@ -5,8 +5,8 @@ const bcrypt = require("bcryptjs");
 
 // Set dark theme if enabled
 if (options.dark_mode) {
-  config.editorTheme.page = {
-    css: "/opt/node_modules/@node-red-contrib-themes/midnight-red/theme.css",
+  config.editorTheme = {
+    theme: "midnight-red",
   };
 }
 // Set theme
