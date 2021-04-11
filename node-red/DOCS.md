@@ -110,17 +110,6 @@ You might need it in the future! (e.g., When restoring a backup).
 Node-RED from being able to decrypt your existing credentials and they will be
 lost._
 
-### Option: `dark_mode` (DEPRECATED)
-
-**Note**: _This option is **DEPRECATED** and will be removed in a future version
-of the add-on._
-
-When set to `true`, the Midnight Node-RED theme by [Mauricio Bonani][bonanitech]
-will be enabled. For more information and a glance at how it looks,
-see the GitHub repository of this theme:
-
-<https://github.com/node-red-contrib-themes/midnight-red>
-
 ### Option: `theme`
 
 Sets one of the Node-RED themes. Currently available options:
@@ -130,8 +119,6 @@ Sets one of the Node-RED themes. Currently available options:
 - `oled`
 - `solarized-dark`
 - `solarized-light`
-
-**Note**: _The option `dark_mode` must be set to false for this option to work._
 
 ### Option: `http_node`
 
@@ -297,7 +284,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 [alpine-packages]: https://pkgs.alpinelinux.org/packages
-[bonanitech]: https://github.com/bonanitech
 [contributors]: https://github.com/hassio-addons/addon-node-red/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord]: https://discord.me/hassioaddons
