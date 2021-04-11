@@ -11,9 +11,11 @@ if (options.dark_mode) {
 }
 // Set theme
 else if (options.theme) {
-  config.editorTheme = {
-    theme: options.theme,
-  };
+  if (options.theme !== "default") {
+    config.editorTheme = {
+      theme: options.theme,
+    };
+  }
 }
 
 // Sane and required defaults for the add-on

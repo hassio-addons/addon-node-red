@@ -114,6 +114,7 @@ lost._
 
 Sets one of the Node-RED themes. Currently available options:
 
+- `default`
 - `dark`
 - `midnight-red`
 - `oled`

@@ -29,7 +29,7 @@
   "map": ["config:rw", "media:rw", "share:rw", "ssl"],
   "options": {
     "credential_secret": "",
-    "theme": "",
+    "theme": "default",
     "http_node": {
       "username": "",
       "password": ""
@@ -49,8 +49,8 @@
   "schema": {
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
     "credential_secret": "password",
-    "theme": "match((dark|midnight-red|oled|solarized-dark|solarized-light)(-scroll)?)?",
     "dark_mode": "bool?",
+    "theme": "match((dark|midnight-red|oled|solarized-dark|solarized-light)(-scroll)?|(default))",
     "http_node": {
       "username": "str",
       "password": "password"
