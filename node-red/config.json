@@ -29,7 +29,6 @@
   "map": ["config:rw", "media:rw", "share:rw", "ssl"],
   "options": {
     "credential_secret": "",
-    "dark_mode": false,
     "theme": "",
     "http_node": {
       "username": "",
@@ -50,8 +49,8 @@
   "schema": {
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
     "credential_secret": "password",
-    "dark_mode": "bool",
     "theme": "match((dark|midnight-red|oled|solarized-dark|solarized-light)(-scroll)?)?",
+    "dark_mode": "bool?",
     "http_node": {
       "username": "str",
       "password": "password"
