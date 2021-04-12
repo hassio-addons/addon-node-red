@@ -110,8 +110,6 @@ You might need it in the future! (e.g., When restoring a backup).
 Node-RED from being able to decrypt your existing credentials and they will be
 lost._
 
-**Note**: _This option support secrets, e.g., `!secret red_secret`._
-
 ### Option: `dark_mode`
 
 When set to `true`, the Midnight Node-RED theme by [Mauricio Bonani][bonanitech]
@@ -128,8 +126,6 @@ the following properties can be used:
 - `username`
 - `password`
 
-**Note**: _These options support secrets, e.g., `!secret red_password`._
-
 **Note**: _In order to use the `http_node` you will need to expose Node-RED using
 a network port in addition to ingress. The HTTP nodes will also be presented
 under `/endpoint/` as shown in the UI. If using the `node-red-dashboard` module
@@ -142,8 +138,6 @@ properties can be used:
 
 - `username`
 - `password`
-
-**Note**: _These options support secrets, e.g., `!secret red_password`._
 
 ### Option: `system_packages`
 
