@@ -20,7 +20,7 @@ jobs:
       build: ${{ steps.information.outputs.build }}
       description: ${{ steps.information.outputs.description }}
       name: ${{ steps.information.outputs.name }}
-      slug: ${{ steps.information.outputs.slug }}
+      slug: "node-red"
       target: ${{ steps.information.outputs.target }}
     steps:
       - name: ⤵️ Check out code from GitHub
