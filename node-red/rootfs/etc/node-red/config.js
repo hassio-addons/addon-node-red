@@ -5,9 +5,17 @@ const bcrypt = require("bcryptjs");
 
 // Set dark theme if enabled
 if (options.dark_mode) {
-  config.editorTheme.page = {
-    css: "/opt/node_modules/@node-red-contrib-themes/midnight-red/theme.css",
+  config.editorTheme = {
+    theme: "midnight-red",
   };
+}
+// Set theme
+else if ("theme" in options) {
+  if (options.theme !== "default") {
+    config.editorTheme = {
+      theme: options.theme,
+    };
+  }
 }
 
 // Sane and required defaults for the add-on
