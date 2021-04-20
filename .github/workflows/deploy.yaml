@@ -28,7 +28,7 @@ jobs:
       description: ${{ steps.information.outputs.description }}
       environment: ${{ steps.release.outputs.environment }}
       name: ${{ steps.information.outputs.name }}
-      slug: ${{ steps.information.outputs.slug }}
+      slug: "node-red"
       target: ${{ steps.information.outputs.target }}
       version: ${{ steps.release.outputs.version }}
     steps:
