@@ -10,7 +10,7 @@ if (options.dark_mode) {
   };
 }
 // Set theme
-else if (options.theme) {
+else if ("theme" in options) {
   if (options.theme !== "default") {
     config.editorTheme = {
       theme: options.theme,
