@@ -5,12 +5,12 @@ const bcrypt = require("bcryptjs");
 
 // Set dark theme if enabled
 if (options.dark_mode) {
-  config.editorTheme.theme = "midnight-red"
+  config.editorTheme.theme = "midnight-red";
 }
 // Set theme
 else if ("theme" in options) {
   if (options.theme !== "default") {
-    config.editorTheme.theme = options.theme
+    config.editorTheme.theme = options.theme;
   }
 }
 
