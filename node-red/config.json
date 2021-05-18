@@ -11,10 +11,15 @@
   "homeassistant": "0.92.0b2",
   "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
   "ports": {
-    "80/tcp": 1880
+    "80/tcp": 1880,
+    "2048/tcp": 2048,
+    "2049/tcp": 2049
+
   },
   "ports_description": {
-    "80/tcp": "Web interface"
+    "80/tcp": "Web interface",
+    "2048/tcp": "HomeMatic CCU BINRPC listening Port",
+    "2049/tcp": "HomeMatic CCU XMLRPC listening Port"
   },
   "hassio_api": true,
   "hassio_role": "manager",
