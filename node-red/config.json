@@ -13,13 +13,29 @@
   "ports": {
     "80/tcp": 1880,
     "2048/tcp": null,
-    "2049/tcp": null
+    "2049/tcp": null,
+    "2050/tcp": null,
+    "2051/tcp": null,
+    "2052/tcp": null,
+    "2053/tcp": null,
+    "2054/tcp": null,
+    "2055/tcp": null,
+    "2056/tcp": null,
+    "2057/tcp": null
 
   },
   "ports_description": {
     "80/tcp": "Web interface",
-    "2048/tcp": "HomeMatic CCU BINRPC listening Port",
-    "2049/tcp": "HomeMatic CCU XMLRPC listening Port"
+    "2048/tcp": "reserved port 1 - e.g. HomeMatic CCU BINRPC listening Port",
+    "2049/tcp": "reserved port 2 - e.g. HomeMatic CCU XMLRPC listening Port",
+    "2050/tcp": "reserved port 3",
+    "2051/tcp": "reserved port 4",
+    "2052/tcp": "reserved port 5",
+    "2053/tcp": "reserved port 6",
+    "2054/tcp": "reserved port 7",
+    "2055/tcp": "reserved port 8",
+    "2056/tcp": "reserved port 9",
+    "2057/tcp": "reserved port 10"
   },
   "hassio_api": true,
   "hassio_role": "manager",
