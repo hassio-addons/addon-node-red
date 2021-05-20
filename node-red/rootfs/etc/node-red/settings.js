@@ -158,12 +158,9 @@ module.exports = {
   },
   
   contextStorage: {
-    default: {
-      module: "localfilesystem"
-    },
-    memoryOnly: {
-      module: "memory"
-    }
+   default: "memory",
+   memory: { module: 'memory' },
+   file: { module: 'localfilesystem' }
   },
   
   // The following property can be used to order the categories in the editor
