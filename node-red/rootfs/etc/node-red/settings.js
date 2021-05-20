@@ -156,7 +156,16 @@ module.exports = {
     // jfive:require("johnny-five"),
     // j5board:require("johnny-five").Board({repl:false})
   },
-
+  
+  contextStorage: {
+    default: {
+          module: "localfilesystem"
+      },
+      memoryOnly: {
+          module: "memory"
+      }
+  },
+  
   // The following property can be used to order the categories in the editor
   // palette. If a node's category is not in the list, the category will get
   // added to the end of the palette.
