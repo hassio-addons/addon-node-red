@@ -1,1 +1,1 @@
-RPi.GPIO==0.7.1a2
+RPi.GPIO==0.7.1a4
