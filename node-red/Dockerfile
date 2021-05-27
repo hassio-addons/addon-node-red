@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:9.2.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:9.2.1
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -24,7 +24,7 @@ RUN \
     \
     && apk add --no-cache \
         git=2.30.2-r0 \
-        nginx=1.18.0-r13  \
+        nginx=1.18.0-r14  \
         nodejs=14.16.1-r1 \
         npm=14.16.1-r1 \
         openssh-client=8.4_p1-r3 \
