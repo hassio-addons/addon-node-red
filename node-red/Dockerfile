@@ -27,7 +27,7 @@ RUN \
         nginx=1.20.1-r3 \
         nodejs=14.17.1-r0 \
         npm=7.17.0-r0 \
-        openssh-client=8.6_p1-r1 \
+        openssh-client=8.6_p1-r2 \
         patch=2.7.6-r7 \
         python3=3.9.5-r1 \
     \
