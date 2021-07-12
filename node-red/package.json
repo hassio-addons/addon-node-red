@@ -32,7 +32,7 @@
     "node-red-contrib-time-range-switch": "1.1.1",
     "node-red-contrib-timecheck": "1.1.0",
     "node-red-contrib-traffic": "0.2.1",
-    "node-red-dashboard": "2.29.3",
+    "node-red-dashboard": "2.30.0",
     "node-red-node-base64": "0.3.0",
     "node-red-node-email": "1.12.2",
     "node-red-node-feedparser": "0.2.1",
