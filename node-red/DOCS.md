@@ -44,7 +44,6 @@ http_static:
 ssl: true
 certfile: fullchain.pem
 keyfile: privkey.pem
-require_ssl: true
 system_packages:
   - ffmpeg
 npm_packages:
@@ -93,11 +92,6 @@ The certificate file to use for SSL.
 The private key file to use for SSL.
 
 **Note**: _The file MUST be stored in `/ssl/`, which is the default_
-
-### Option: `require_ssl`
-
-This option can be used to cause insecure HTTP connections to be redirected
-to HTTPS. This is recommended when you have SSL enabled.
 
 ### Option: `credential_secret`
 

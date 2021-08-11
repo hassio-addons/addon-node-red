@@ -42,7 +42,6 @@
     "ssl": true,
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
-    "require_ssl": true,
     "system_packages": [],
     "npm_packages": [],
     "init_commands": []
@@ -62,7 +61,6 @@
     "ssl": "bool",
     "certfile": "str",
     "keyfile": "str",
-    "require_ssl": "bool",
     "system_packages": ["str"],
     "npm_packages": ["str"],
     "init_commands": ["str"],
