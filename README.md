@@ -10,7 +10,7 @@
 ![Supports armv7 Architecture][armv7-shield]
 ![Supports i386 Architecture][i386-shield]
 
-[![GitLab CI][gitlabci-shield]][gitlabci]
+[![Github Actions][github-actions-shield]][github-actions]
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
@@ -110,13 +110,14 @@ SOFTWARE.
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord-shield]: https://img.shields.io/discord/478094546522079232.svg
 [discord]: https://discord.me/hassioaddons
+[docs]: https://github.com/hassio-addons/addon-node-red/blob/master/node-red/DOCS.md
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
 [forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-node-red/55023?u=frenck
 [frenck]: https://github.com/frenck
+[github-actions-shield]: https://github.com/hassio-addons/addon-node-red/workflows/CI/badge.svg
+[github-actions]: https://github.com/hassio-addons/addon-node-red/actions
 [github-sponsors-shield]: https://frenck.dev/wp-content/uploads/2019/12/github_sponsor.png
 [github-sponsors]: https://github.com/sponsors/frenck
-[gitlabci-shield]: https://gitlab.com/hassio-addons/addon-node-red/badges/master/pipeline.svg
-[gitlabci]: https://gitlab.com/hassio-addons/addon-node-red/pipelines
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 [issue]: https://github.com/hassio-addons/addon-node-red/issues
 [license-shield]: https://img.shields.io/github/license/hassio-addons/addon-node-red.svg
@@ -128,4 +129,3 @@ SOFTWARE.
 [releases-shield]: https://img.shields.io/github/release/hassio-addons/addon-node-red.svg
 [releases]: https://github.com/hassio-addons/addon-node-red/releases
 [repository]: https://github.com/hassio-addons/repository
-[docs]: https://github.com/hassio-addons/addon-node-red/blob/master/node-red/DOCS.md
