@@ -23,18 +23,6 @@ if bashio::config.is_empty 'credential_secret'; then
     bashio::exit.nok
 fi
 
- # Require a secure http_node password
-if bashio::config.has_value 'http_node.password' \
-    && ! bashio::config.true 'i_like_to_be_pwned'; then
-    bashio::config.require.safe_password 'http_node.password'
-fi
-
- # Require a secure http_static password
-if bashio::config.has_value 'http_static.password' \
-    && ! bashio::config.true 'i_like_to_be_pwned'; then
-    bashio::config.require.safe_password 'http_static.password'
-fi
-
 # Ensure configuration exists
 if ! bashio::fs.directory_exists '/config/node-red/'; then
     mkdir -p /config/node-red/nodes \
