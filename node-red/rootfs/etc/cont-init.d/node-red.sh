@@ -72,15 +72,6 @@ else
     sed -i "s/%%SSL%%/false/" "/opt/node_modules/node-red-dashboard/nodes/ui_base.html"
 fi
 
-# Warns about dark_mode deprecation
-if bashio::config.has_value 'dark_mode'; then
-    bashio::log.warning
-    bashio::log.warning "The dark_mode option has been deprecated and will be"
-    bashio::log.warning "removed in a future version. Please use the theme"
-    bashio::log.warning "option instead."
-    bashio::log.warning
-fi
-
 # Ensures conflicting Node-RED packages are absent
 cd /config/node-red || bashio::exit.nok "Could not change directory to Node-RED"
 if bashio::fs.file_exists "/config/node-red/package.json"; then
