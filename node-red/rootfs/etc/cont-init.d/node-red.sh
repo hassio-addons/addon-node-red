@@ -90,16 +90,3 @@ if bashio::fs.file_exists "/config/node-red/package.json"; then
         node-red-contrib-home-assistant-ws \
             || bashio::exit.nok "Failed un-installing conflicting packages"
 fi
-
-# Migrate existing configuration to new format
-# shellcheck disable=SC2094
-cat <<< "$(
-    jq -c '. |= map(
-        if (.type == "server"
-            and (.hassio == true or .url == "http://hassio/homeassistant")
-        ) then
-            del(.hassio) | del(.url) | del(.pass) | .addon = true
-        else
-            .
-        end
-    )' /config/node-red/flows.json)" > /config/node-red/flows.json
