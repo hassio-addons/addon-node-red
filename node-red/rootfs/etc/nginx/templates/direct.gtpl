@@ -21,7 +21,7 @@ server {
         proxy_pass              http://supervisor/auth;
         proxy_pass_request_body off;
         proxy_set_header        Content-Length "";
-        proxy_set_header        X-Supervisor-Token "{{ env "SUPERVISOR_TOKEN" }}";
+        proxy_set_header        Authorization "Bearer {{ env "SUPERVISOR_TOKEN" }}";
     }
     {{ end }}
 
