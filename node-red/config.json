@@ -6,6 +6,7 @@
   "url": "https://github.com/hassio-addons/addon-node-red",
   "ingress": true,
   "ingress_port": 0,
+  "ingress_stream": true,
   "panel_icon": "mdi:sitemap",
   "init": false,
   "homeassistant": "0.92.0b2",
