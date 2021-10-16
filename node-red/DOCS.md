@@ -113,6 +113,7 @@ Sets one of the Node-RED themes. Currently available options:
 
 - `default`
 - `dark`
+- `dracula`
 - `midnight-red`
 - `oled`
 - `solarized-dark`

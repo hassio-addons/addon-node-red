@@ -49,7 +49,7 @@
   "schema": {
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
     "credential_secret": "password",
-    "theme": "list(default|dark|midnight-red|oled|solarized-dark|solarized-light)?",
+    "theme": "list(default|dark|dracula|midnight-red|oled|solarized-dark|solarized-light)?",
     "http_node": {
       "username": "str",
       "password": "password"
