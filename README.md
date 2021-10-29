@@ -27,7 +27,7 @@ Flow-based programming for the Internet of Things.
 
 ## About
 
-Node-RED is a programming tool for wiring together hardware devices,
+[Node-RED][nodered] is a programming tool for wiring together hardware devices,
 APIs and online services in new and interesting ways.
 
 It provides a browser-based editor that makes it easy to wire together flows
@@ -48,6 +48,7 @@ You have several options to get them answered:
   Assistant discussions and questions.
 - The Home Assistant [Community Forum][forum].
 - Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
+- The [Node-RED documentation][nodered-docs]
 
 You could also [open an issue here][issue] GitHub.
 
@@ -122,6 +123,8 @@ SOFTWARE.
 [issue]: https://github.com/hassio-addons/addon-node-red/issues
 [license-shield]: https://img.shields.io/github/license/hassio-addons/addon-node-red.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2021.svg
+[nodered]: https://nodered.org
+[nodered-docs]: https://nodered.org/docs
 [patreon-shield]: https://frenck.dev/wp-content/uploads/2019/12/patreon.png
 [patreon]: https://www.patreon.com/frenck
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
