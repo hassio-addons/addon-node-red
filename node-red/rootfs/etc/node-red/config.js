@@ -6,6 +6,9 @@ const bcrypt = require("bcryptjs");
 if ("theme" in options) {
   if (options.theme !== "default") {
     config.editorTheme.theme = options.theme;
+    if (options.themed_scrollbars === true) {
+      config.editorTheme.theme = options.theme + "-scroll";
+    }
   }
 }
 

@@ -119,6 +119,11 @@ Sets one of the Node-RED themes. Currently available options:
 - `solarized-dark`
 - `solarized-light`
 
+### Option: `themed_scrollbars`
+
+Enables/Disables themed scrollbars on the web interface.
+Set it `true` to enable it, `false` otherwise.
+
 ### Option: `http_node`
 
 To password protect the node-defined HTTP endpoints (`httpNodeRoot`),

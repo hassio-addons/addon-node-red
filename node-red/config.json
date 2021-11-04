@@ -31,6 +31,7 @@
   "options": {
     "credential_secret": "",
     "theme": "default",
+    "themed_scrollbars": false,
     "http_node": {
       "username": "",
       "password": ""
@@ -50,6 +51,7 @@
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
     "credential_secret": "password",
     "theme": "list(default|dark|dracula|midnight-red|oled|solarized-dark|solarized-light)?",
+    "themed_scrollbars": "bool",
     "http_node": {
       "username": "str",
       "password": "password"
