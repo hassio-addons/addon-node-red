@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:10.2.3
+ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:11.0.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -14,22 +14,22 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        g++=10.3.1_git20210424-r2 \
-        gcc=10.3.1_git20210424-r2 \
+        g++=10.3.1_git20211027-r0 \
+        gcc=10.3.1_git20211027-r0 \
         libc-dev=0.7.2-r3 \
         linux-headers=5.10.41-r0 \
         make=4.3-r0 \
         py3-pip=20.3.4-r1 \
-        python3-dev=3.9.5-r1 \
+        python3-dev=3.9.7-r4 \
     \
     && apk add --no-cache \
-        git=2.32.0-r0 \
+        git=2.34.1-r0 \
         nginx=1.20.2-r0 \
-        nodejs=14.18.1-r0 \
-        npm=7.17.0-r0 \
-        openssh-client=8.6_p1-r3 \
+        nodejs=16.13.0-r0 \
+        npm=8.1.3-r0 \
+        openssh-client=8.8_p1-r1 \
         patch=2.7.6-r7 \
-        python3=3.9.5-r1 \
+        python3=3.9.7-r4 \
     \
     && npm config set unsafe-perm true \
     \
