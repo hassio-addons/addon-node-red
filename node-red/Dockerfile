@@ -51,6 +51,9 @@ RUN \
         /tmp/* \
         /etc/nginx
 
+# Environment variables
+ENV NODE_ICU_DATA=/opt/node_modules/full-icu
+
 # Copy root filesystem
 COPY rootfs /
 
