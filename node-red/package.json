@@ -24,7 +24,7 @@
     "node-red-contrib-influxdb": "0.6.1",
     "node-red-contrib-interval-length": "0.0.4",
     "node-red-contrib-looptimer": "0.0.8",
-    "node-red-contrib-modbus": "5.15.0",
+    "node-red-contrib-modbus": "5.16.0",
     "node-red-contrib-moment": "4.0.0",
     "node-red-contrib-persistent-fsm": "1.1.0",
     "node-red-contrib-statistics": "2.2.2",
