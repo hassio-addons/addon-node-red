@@ -19,4 +19,3 @@ jobs:
       slug: "node-red"
     secrets:
       DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -16,5 +16,3 @@ jobs:
     uses: hassio-addons/workflows/.github/workflows/addon-ci.yaml@main
     with:
       slug: "node-red"
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
