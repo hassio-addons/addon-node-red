@@ -6,6 +6,11 @@
 export NODE_PATH=/opt/node_modules:/data/node_modules
 declare -a options
 
+if bashio::config.true 'safe_mode'; then
+    bashio::log.info "Setting safe mode startup"
+    options+=(--safe)
+fi
+
 options+=(--settings "/etc/node-red/config.js")
 
 cd /opt || bashio::exit.nok "Could not change directory to Node-RED"
