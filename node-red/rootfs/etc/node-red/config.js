@@ -9,6 +9,13 @@ if ("theme" in options) {
   }
 }
 
+// Code editor library. See https://github.com/node-red/node-red/blob/master/packages/node_modules/node-red/settings.js#L356
+if ("code_editor" in options) {
+  if (options.code_editor !== "default") {
+    config.editorTheme.codeEditor.lib = options.code_editor;
+  }
+}
+
 // Sane and required defaults for the add-on
 config.debugUseColors = false;
 config.flowFile = "flows.json";

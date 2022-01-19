@@ -40,6 +40,7 @@ map:
 options:
   credential_secret: ""
   theme: default
+  code_editor: default
   http_node:
     username: ""
     password: ""
@@ -56,6 +57,7 @@ schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   credential_secret: password
   theme: list(default|dark|dracula|midnight-red|oled|solarized-dark|solarized-light)?
+  code_editor: list(default|ace|monaco)?
   http_node:
     username: str
     password: password
