@@ -36,6 +36,7 @@ map:
   - config:rw
   - media:rw
   - share:rw
+  - backup
   - ssl
 options:
   credential_secret: ""
