@@ -162,6 +162,7 @@ module.exports = {
   // If not set, the following default order is used:
   paletteCategories: [
     "home_assistant",
+    "home_assistant entities",
     "subflows",
     "common",
     "function",
