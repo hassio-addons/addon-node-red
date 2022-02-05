@@ -202,7 +202,9 @@ Save the file and restart the Node-RED add-on.
 
 - While this add-on ships with Node-RED Dashboard, it currently does not
   support accessing the dashboard via Ingress. This is a technical limitation
-  on the Node-RED Dashboard end.
+  on the Node-RED Dashboard end.  
+  In the mean while, you can use the [Node-RED Dashboard](https://github.com/regevbr/addon-node-red-dashboard)
+  addon to access the dashboard using the sidebar.
 
 - If you cannot access HTTP nodes or Node-RED Dashboard, please check
   if you have enabled direct access mode by setting a port number in
