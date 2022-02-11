@@ -73,3 +73,4 @@ schema:
     - str
   leave_front_door_open: bool?
   safe_mode: bool?
+  max_old_space_size: int?
