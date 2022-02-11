@@ -5,6 +5,13 @@
 # ==============================================================================
 export NODE_PATH=/opt/node_modules:/data/node_modules
 declare -a options
+declare max_old_space_size
+
+if bashio::config.exists 'max_old_space_size'; then
+    max_old_space_size=$(bashio::config 'max_old_space_size')
+    bashio::log.info "Setting max_old_space_size to ${max_old_space_size}"
+    export NODE_OPTIONS="--max_old_space_size=${max_old_space_size}"
+fi
 
 if bashio::config.true 'safe_mode'; then
     bashio::log.info "Setting safe mode startup"
