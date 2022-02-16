@@ -13,7 +13,7 @@
     "bcryptjs": "2.4.3",
     "js-yaml": "4.1.0",
     "full-icu": "1.4.0",
-    "node-red": "2.2.0",
+    "node-red": "2.2.1",
     "node-red-contrib-alexa-home-skill": "0.1.19",
     "node-red-contrib-bigtimer": "2.8.1",
     "node-red-contrib-cast": "0.2.17",
