@@ -15,7 +15,6 @@ on:
 jobs:
   workflows:
     uses: hassio-addons/workflows/.github/workflows/addon-deploy.yaml@main
-    with:
-      slug: "node-red"
     secrets:
+      CAS_API_KEY: ${{ secrets.CAS_API_KEY }}
       DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
