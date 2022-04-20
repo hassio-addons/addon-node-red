@@ -20,7 +20,7 @@
     "node-red-contrib-counter": "0.1.6",
     "node-red-contrib-home-assistant-websocket": "0.43.1",
     "node-red-contrib-influxdb": "0.6.1",
-    "node-red-contrib-interval-length": "0.0.5",
+    "node-red-contrib-interval-length": "0.0.6",
     "node-red-contrib-looptimer": "0.0.8",
     "node-red-contrib-modbus": "5.21.2",
     "node-red-contrib-moment": "4.0.0",
