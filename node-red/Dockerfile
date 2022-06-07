@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:11.1.2
+ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:12.0.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -14,22 +14,23 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        g++=10.3.1_git20211027-r0 \
-        gcc=10.3.1_git20211027-r0 \
+        g++=11.2.1_git20220219-r2 \
+        gcc=11.2.1_git20220219-r2 \
         libc-dev=0.7.2-r3 \
-        linux-headers=5.10.41-r0 \
+        linux-headers=5.16.7-r1 \
         make=4.3-r0 \
-        py3-pip=20.3.4-r1 \
-        python3-dev=3.9.7-r4 \
+        py3-pip=22.1.1-r0 \
+        python3-dev=3.10.4-r0 \
     \
     && apk add --no-cache \
-        git=2.34.2-r0 \
-        nginx=1.20.2-r1 \
-        nodejs=16.14.2-r0 \
-        npm=8.1.3-r0 \
-        openssh-client=8.8_p1-r1 \
+        git=2.36.1-r0 \
+        icu-data-full=71.1-r2 \
+        nginx=1.22.0-r0 \
+        nodejs=16.15.0-r1 \
+        npm=8.10.0-r0 \
+        openssh-client=9.0_p1-r1 \
         patch=2.7.6-r7 \
-        python3=3.9.7-r4 \
+        python3=3.10.4-r0 \
     \
     && npm config set unsafe-perm true \
     \
@@ -50,9 +51,6 @@ RUN \
     && rm -fr \
         /tmp/* \
         /etc/nginx
-
-# Environment variables
-ENV NODE_ICU_DATA=/opt/node_modules/full-icu
 
 # Copy root filesystem
 COPY rootfs /
