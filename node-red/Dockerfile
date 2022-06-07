@@ -42,6 +42,7 @@ RUN \
         --no-update-notifier \
         --only=production \
         --unsafe-perm \
+    && npm rebuild --build-from-source @serialport/bindings-cpp \
     \
     && npm cache clear --force \
     \
