@@ -27,12 +27,6 @@ homeassistant_api: true
 host_network: true
 auth_api: true
 uart: true
-gpio: true
-privileged:
-  - SYS_RAWIO
-devices:
-  - /dev/mem
-apparmor: false
 map:
   - config:rw
   - media:rw

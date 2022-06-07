@@ -3,7 +3,7 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:12.0.0
 FROM ${BUILD_FROM}
 
 # Copy Node-RED package.json
-COPY package.json requirements.txt /opt/
+COPY package.json /opt/
 
 # Set workdir
 WORKDIR /opt
@@ -21,6 +21,7 @@ RUN \
         make=4.3-r0 \
         py3-pip=22.1.1-r0 \
         python3-dev=3.10.4-r0 \
+        python3=3.10.4-r0 \
     \
     && apk add --no-cache \
         git=2.36.1-r0 \
@@ -30,11 +31,8 @@ RUN \
         npm=8.10.0-r0 \
         openssh-client=9.0_p1-r1 \
         patch=2.7.6-r7 \
-        python3=3.10.4-r0 \
     \
     && npm config set unsafe-perm true \
-    \
-    && pip install --no-cache-dir -r /opt/requirements.txt \
     \
     && npm install \
         --no-audit \
