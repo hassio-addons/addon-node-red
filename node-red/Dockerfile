@@ -48,8 +48,11 @@ RUN \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -fr \
-        /tmp/* \
-        /etc/nginx
+        /etc/nginx \
+        /root/.cache \
+        /root/.npm \
+        /root/.nrpmrc \
+        /tmp/*
 
 # Copy root filesystem
 COPY rootfs /
