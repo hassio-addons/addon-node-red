@@ -67,5 +67,5 @@ if bashio::fs.file_exists "/config/node-red/package.json"; then
         node-red-contrib-home-assistant \
         node-red-contrib-home-assistant-llat \
         node-red-contrib-home-assistant-ws \
-            || bashio::exit.nok "Failed un-installing conflicting packages"
+            || bashio::log.warning "Failed un-installing conflicting packages"
 fi
