@@ -28,7 +28,6 @@
     "node-red-node-base64": "0.3.0",
     "node-red-node-email": "1.15.1",
     "node-red-node-feedparser": "0.3.0",
-    "node-red-node-pi-gpio": "2.0.3",
     "node-red-node-ping": "0.3.1",
     "node-red-node-random": "0.4.0",
     "node-red-node-serialport": "1.0.1",
