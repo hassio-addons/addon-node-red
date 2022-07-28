@@ -57,6 +57,9 @@ RUN \
 # Copy root filesystem
 COPY rootfs /
 
+# Health check
+HEALTHCHECK CMD curl --fail http://127.0.0.1:46836 || exit 1
+
 # Build arguments
 ARG BUILD_ARCH
 ARG BUILD_DATE
@@ -65,7 +68,6 @@ ARG BUILD_NAME
 ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
-
 
 # Labels
 LABEL \
