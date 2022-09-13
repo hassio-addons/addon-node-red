@@ -8,4 +8,4 @@ if [[ "${1}" -ne 0 ]] && [[ "${1}" -ne 256 ]]; then
   /run/s6/basedir/bin/halt
 fi
 
-bashio::log.info "nginx stoped, restarting..."
+bashio::log.info "nginx stopped, restarting..."
