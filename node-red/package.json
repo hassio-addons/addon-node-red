@@ -29,7 +29,7 @@
     "node-red-node-email": "1.17.0",
     "node-red-node-feedparser": "0.3.0",
     "node-red-node-ping": "0.3.3",
-    "node-red-node-random": "0.4.0",
+    "node-red-node-random": "0.4.1",
     "node-red-node-serialport": "1.0.1",
     "node-red-node-smooth": "0.1.2",
     "node-red-node-suncalc": "1.0.1",
