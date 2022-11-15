@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:12.2.6
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:12.2.7
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -20,8 +20,8 @@ RUN \
         linux-headers=5.16.7-r1 \
         make=4.3-r0 \
         py3-pip=22.1.1-r0 \
-        python3-dev=3.10.5-r0 \
-        python3=3.10.5-r0 \
+        python3-dev=3.10.8-r0 \
+        python3=3.10.8-r0 \
     \
     && apk add --no-cache \
         git=2.36.3-r0 \
