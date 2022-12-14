@@ -20,8 +20,8 @@ RUN \
         linux-headers=5.19.5-r0 \
         make=4.3-r1 \
         py3-pip=22.3.1-r1 \
-        python3-dev=3.10.9-r0 \
-        python3=3.10.9-r0 \
+        python3-dev=3.10.9-r1 \
+        python3=3.10.9-r1 \
     \
     && apk add --no-cache \
         git=2.38.2-r0 \
