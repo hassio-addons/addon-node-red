@@ -22,7 +22,7 @@
     "node-red-contrib-modbus": "5.25.0",
     "node-red-contrib-moment": "4.0.0",
     "node-red-contrib-persistent-fsm": "1.2.1",
-    "node-red-contrib-sunevents": "3.0.3",
+    "node-red-contrib-sunevents": "3.1.0",
     "node-red-contrib-time-range-switch": "1.2.0",
     "node-red-dashboard": "3.3.1",
     "node-red-node-base64": "0.3.0",
