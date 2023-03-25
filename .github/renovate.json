@@ -43,8 +43,8 @@
     },
     {
       "matchDatasources": ["npm"],
-      "addlabels": ["javascript"],
-      "rangeStategy": "pin"
+      "addLabels": ["javascript"],
+      "rangeStrategy": "pin"
     },
     {
       "matchDatasources": ["npm"],
