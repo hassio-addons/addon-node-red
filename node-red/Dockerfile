@@ -14,14 +14,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        g++=12.2.1_git20220924-r4 \
-        gcc=12.2.1_git20220924-r4 \
-        libc-dev=0.7.2-r3 \
+        build-base=0.5-r3 \
         linux-headers=5.19.5-r0 \
-        make=4.3-r1 \
         py3-pip=22.3.1-r1 \
         python3-dev=3.10.10-r0 \
-        python3=3.10.10-r0 \
     \
     && apk add --no-cache \
         git=2.38.4-r1 \
