@@ -23,7 +23,7 @@
       ],
       "versioningTemplate": "loose",
       "datasourceTemplate": "repology",
-      "depNameTemplate": "alpine_3_17/{{package}}"
+      "depNameTemplate": "alpine_3_17/{{{replace 'openssh-client' 'openssh' package}}}"
     }
   ],
   "packageRules": [
