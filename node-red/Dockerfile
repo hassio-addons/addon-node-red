@@ -4,6 +4,7 @@ FROM ${BUILD_FROM}
 
 # Copy Node-RED package.json
 COPY package.json /opt/
+COPY node-red-dashboard-show-dashboard.patch /tmp/
 
 # Set workdir
 WORKDIR /opt
@@ -26,7 +27,7 @@ RUN \
         nodejs=18.14.2-r0 \
         npm=9.1.2-r0 \
         openssh-client=9.1_p1-r2 \
-        patch=2.7.6-r8 \
+        patch=2.7.6-r9 \
     \
     && npm install \
         --no-audit \
@@ -39,6 +40,9 @@ RUN \
     && npm cache clear --force \
     \
     && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
+    \
+    && patch -d /opt/node_modules/node-red-dashboard -p1 \
+             -i /tmp/node-red-dashboard-show-dashboard.patch \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -fr \
