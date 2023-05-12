@@ -24,7 +24,7 @@ RUN \
         git=2.38.5-r0 \
         icu-data-full=72.1-r1 \
         nginx=1.22.1-r0 \
-        nodejs=18.14.2-r0 \
+        nodejs=18.16.0-r0 \
         npm=9.1.2-r0 \
         openssh-client=9.1_p1-r2 \
         patch=2.7.6-r9 \
