@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:13.2.2
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:14.0.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -16,18 +16,18 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         build-base=0.5-r3 \
-        linux-headers=5.19.5-r0 \
-        py3-pip=22.3.1-r1 \
-        python3-dev=3.10.11-r0 \
+        linux-headers=6.3-r0 \
+        py3-pip=23.1.2-r0 \
+        python3-dev=3.11.3-r11 \
     \
     && apk add --no-cache \
-        git=2.38.5-r0 \
-        icu-data-full=72.1-r1 \
-        nginx=1.22.1-r0 \
-        nodejs=18.14.2-r0 \
-        npm=9.1.2-r0 \
-        openssh-client=9.1_p1-r2 \
-        patch=2.7.6-r9 \
+        git=2.40.1-r0 \
+        icu-data-full=73.1-r1 \
+        nginx=1.24.0-r3 \
+        nodejs=18.16.0-r1 \
+        npm=9.6.6-r0 \
+        openssh-client=9.3_p1-r3 \
+        patch=2.7.6-r10 \
     \
     && npm install \
         --no-audit \
