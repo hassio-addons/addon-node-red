@@ -23,7 +23,7 @@ RUN \
     && apk add --no-cache \
         git=2.40.1-r0 \
         icu-data-full=73.1-r1 \
-        nginx=1.24.0-r4 \
+        nginx=1.24.0-r5 \
         nodejs=18.16.0-r1 \
         npm=9.6.6-r0 \
         openssh-client=9.3_p1-r3 \
