@@ -14,9 +14,7 @@ homeassistant: 2023.3.0
 arch:
   - aarch64
   - amd64
-  - armhf
   - armv7
-  - i386
 ports:
   80/tcp: 1880
 ports_description:
