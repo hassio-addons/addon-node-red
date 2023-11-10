@@ -18,8 +18,6 @@ comparison to installing any other Home Assistant add-on.
    [![Open this add-on in your Home Assistant instance.][addon-badge]][addon]
 
 1. Click the "Install" button to install the add-on.
-1. Set a `credential_secret`, which is used to encrypt sensitive data.
-   This is just a "password", which you should save in a secondary location.
 1. Start the "Node-RED" add-on.
 1. Check the logs of "Node-RED" to see if everything went well.
 1. Click on the "OPEN WEB UI" button to jump into Node-RED.
@@ -36,7 +34,6 @@ Example add-on configuration:
 
 ```yaml
 log_level: info
-credential_secret: KJHhfdhiFRENCKfsdfdsDHFHDJS
 http_node:
   username: MarryPoppins
   password: Supercalifragilisticexpialidocious
