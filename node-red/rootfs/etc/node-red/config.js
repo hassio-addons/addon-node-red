@@ -1,4 +1,4 @@
-const config = require("/config/node-red/settings.js");
+const config = require("/config/settings.js");
 const fs = require("fs");
 const options = JSON.parse(fs.readFileSync("/data/options.json", "utf8"));
 const bcrypt = require("bcryptjs");
@@ -12,10 +12,10 @@ if ("theme" in options) {
 // Sane and required defaults for the add-on
 config.debugUseColors = false;
 config.flowFile = "flows.json";
-config.nodesDir = "/config/node-red/nodes";
+config.nodesDir = "/config/nodes";
 config.uiHost = "127.0.0.1";
 config.uiPort = 46836;
-config.userDir = "/config/node-red/";
+config.userDir = "/config/";
 
 //Set path for HTTP_Nodes to be served from avoiding lua auth
 config.httpNodeRoot = "/endpoint";

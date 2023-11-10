@@ -207,15 +207,14 @@ on garbage collection in an effort to free unused memory.
 
 ## Configuration folder
 
-The addon will store most of its configuration in the `config/node-red` folder,
-including the `flows.json`. Please ensure this is included in your backup. It is
-also important to note that this will not be removed on uninstalling the addon.
+The addon will store most of its configuration in the Node-RED add-on
+configuration folder, including the `flows.json`.
 
 ## Time zone configuration
 
 The addon will use the configured time zone of the underlying operating system.
 If this is incorrect (for example with the Home Assistant Operating System it
-will be UTC), this can be configured in the `/config/node-red/settings.js` file.
+will be UTC), this can be configured in the `settings.js` file.
 
 To do so, open the file with a text editor and add the following above the
 `module.exports = {` line.
