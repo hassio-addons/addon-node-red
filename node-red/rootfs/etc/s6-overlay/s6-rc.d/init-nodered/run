@@ -24,18 +24,27 @@ if bashio::config.is_empty 'credential_secret'; then
     bashio::exit.nok
 fi
 
+# Migrate add-on data from the Home Assistant config folder,
+# to the add-on configuration folder.
+if ! bashio::fs.directory_exists '/config/settings.js' \
+    && bashio::fs.file_exists '/homeassistant/node-red/settings.js'; then
+    shopt -s dotglob
+    mv /homeassistant/node-red/* /config/ \
+        || bashio::exit.nok "Failed to migrate Node-RED configuration"
+fi
+
 # Ensure configuration exists
-if ! bashio::fs.directory_exists '/config/node-red/'; then
-    mkdir -p /config/node-red/nodes \
+if ! bashio::fs.directory_exists '/config/settings.js'; then
+    mkdir -p /config/nodes \
         || bashio::exit.nok "Failed to create node-red configuration directory"
 
     # Copy in template files
-    cp /etc/node-red/flows.json /config/node-red/
-    cp /etc/node-red/settings.js /config/node-red/
+    cp /etc/node-red/flows.json /config/
+    cp /etc/node-red/settings.js /config/
 
     # Create random flow id
     id=$(node -e "console.log((1+Math.random()*4294967295).toString(16));")
-    sed -i "s/%%ID%%/${id}/" "/config/node-red/flows.json"
+    sed -i "s/%%ID%%/${id}/" "/config/flows.json"
 fi
 
 # Pass in port & SSL settings
@@ -58,8 +67,8 @@ else
 fi
 
 # Ensures conflicting Node-RED packages are absent
-cd /config/node-red || bashio::exit.nok "Could not change directory to Node-RED"
-if bashio::fs.file_exists "/config/node-red/package.json"; then
+cd /config || bashio::exit.nok "Could not change directory to Node-RED"
+if bashio::fs.file_exists "/config/package.json"; then
     npm uninstall \
         node-red-contrib-home-assistant \
         node-red-contrib-home-assistant-llat \
