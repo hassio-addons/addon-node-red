@@ -24,6 +24,14 @@ if bashio::config.is_empty 'credential_secret'; then
     bashio::exit.nok
 fi
 
+# Migrate add-on data from the Home Assistant config folder,
+# to the add-on configuration folder.
+if ! bashio::fs.directory_exists '/config/node-red/' \
+    && bashio::fs.file_exists '/homeassistant/node-red/settings.js'; then
+    mv /homeassistant/node-red /config/ \
+        || bashio::exit.nok "Failed to migrate Node-RED configuration"
+fi
+
 # Ensure configuration exists
 if ! bashio::fs.directory_exists '/config/node-red/'; then
     mkdir -p /config/node-red/nodes \
