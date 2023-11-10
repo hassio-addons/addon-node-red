@@ -26,8 +26,10 @@ config.adminAuth = null;
 // Disable SSL, since the add-on handles that
 config.https = null;
 
-// Several settings
-config.credentialSecret = options.credential_secret;
+// Credential secret
+if (options.credentialSecret) {
+  config.credentialSecret = options.credential_secret;
+}
 
 // Secure HTTP node
 if (options.http_node.username) {
