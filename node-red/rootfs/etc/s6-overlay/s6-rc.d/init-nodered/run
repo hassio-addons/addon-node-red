@@ -8,7 +8,7 @@ declare port
 
 # Migrate add-on data from the Home Assistant config folder,
 # to the add-on configuration folder.
-if ! bashio::fs.directory_exists '/config/settings.js' \
+if ! bashio::fs.file_exists '/config/settings.js' \
     && bashio::fs.file_exists '/homeassistant/node-red/settings.js'; then
     shopt -s dotglob
     mv /homeassistant/node-red/* /config/ \
@@ -16,7 +16,7 @@ if ! bashio::fs.directory_exists '/config/settings.js' \
 fi
 
 # Ensure configuration exists
-if ! bashio::fs.directory_exists '/config/settings.js'; then
+if ! bashio::fs.file_exists '/config/settings.js'; then
     mkdir -p /config/nodes \
         || bashio::exit.nok "Failed to create node-red configuration directory"
 
