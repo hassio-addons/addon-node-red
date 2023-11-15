@@ -27,7 +27,7 @@ config.adminAuth = null;
 config.https = null;
 
 // Credential secret
-if (options.credentialSecret) {
+if (options.credential_secret) {
   config.credentialSecret = options.credential_secret;
 }
 
