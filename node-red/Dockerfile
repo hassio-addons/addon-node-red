@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:15.0.1
+ARG BUILD_FROM=ghcr.io/hassio-addons/base-nodejs:0.1.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -24,9 +24,7 @@ RUN \
         git=2.43.0-r0 \
         icu-data-full=74.1-r0 \
         nginx=1.24.0-r14 \
-        nodejs=20.10.0-r0 \
-        npm=10.2.5-r0 \
-        openssh-client=9.5_p1-r0 \
+        openssh-client=9.6_p1-r0 \
         patch=2.7.6-r10 \
     \
     && npm install \
