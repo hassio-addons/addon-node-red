@@ -19,7 +19,7 @@
     "node-red-contrib-home-assistant-websocket": "0.62.3",
     "node-red-contrib-influxdb": "0.7.0",
     "node-red-contrib-interval-length": "0.0.6",
-    "node-red-contrib-modbus": "5.29.0",
+    "node-red-contrib-modbus": "5.30.0",
     "node-red-contrib-moment": "5.0.0",
     "node-red-contrib-persistent-fsm": "1.2.1",
     "node-red-contrib-sunevents": "3.1.1",
