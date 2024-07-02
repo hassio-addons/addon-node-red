@@ -24,7 +24,7 @@ RUN \
         git=2.43.4-r0 \
         icu-data-full=74.1-r0 \
         nginx=1.24.0-r16 \
-        openssh-client=9.6_p1-r0 \
+        openssh-client=9.6_p1-r1 \
         patch=2.7.6-r10 \
     \
     && npm install \
