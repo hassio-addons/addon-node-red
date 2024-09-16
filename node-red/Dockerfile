@@ -21,7 +21,7 @@ RUN \
         python3-dev=3.11.10-r0 \
     \
     && apk add --no-cache \
-        git=2.43.4-r0 \
+        git=2.43.5-r0 \
         icu-data-full=74.1-r0 \
         nginx=1.24.0-r16 \
         openssh-client=9.6_p1-r1 \
