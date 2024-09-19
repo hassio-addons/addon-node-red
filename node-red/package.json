@@ -34,7 +34,7 @@
     "node-red-node-smooth": "0.1.2",
     "node-red-node-suncalc": "1.1.2",
     "node-red-node-twitter": "1.2.0",
-    "@node-red-contrib-themes/theme-collection": "4.0.9",
+    "@node-red-contrib-themes/theme-collection": "4.0.10",
     "line-by-line": "0.1.6",
     "source-map-support": "0.5.21"
   },
