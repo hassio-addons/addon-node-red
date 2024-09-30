@@ -31,6 +31,8 @@ map:
   - media:rw
   - share:rw
   - ssl
+backup_exclude:
+  - "node_modules"
 options:
   theme: default
   http_node:
