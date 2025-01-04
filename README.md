@@ -103,7 +103,7 @@ SOFTWARE.
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
-[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
+[armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
 [bonanitech]: https://github.com/bonanitech
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-node-red.svg
 [commits]: https://github.com/hassio-addons/addon-node-red/commits/master
