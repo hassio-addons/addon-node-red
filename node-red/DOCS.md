@@ -210,7 +210,7 @@ configuration folder, including the `flows.json`.
 ## Time zone configuration
 
 The add-on will use the time zone configured in Home Assistant settings. If
-the timezone is incorrect, update the setting in Home Assistant and restart
+the time zone is incorrect, update the setting in Home Assistant and restart
 the Node-RED add-on to apply the latest configuration.
 
 If you would like to override the time zone for Node RED specifically, this
