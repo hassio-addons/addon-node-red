@@ -22,7 +22,7 @@ RUN \
     \
     && apk add --no-cache \
         git=2.49.1-r0 \
-        icu-data-full=76.1-r0 \
+        icu-data-full=76.1-r1 \
         nginx=1.28.0-r3 \
         nodejs=22.16.0-r2 \
         npm=11.3.0-r0 \
