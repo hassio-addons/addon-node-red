@@ -21,7 +21,7 @@ config.userDir = "/config/";
 config.httpNodeRoot = "/endpoint";
 
 // Disable authentication, let HA handle that
-config.adminAuth = null;
+// config.adminAuth = null;
 
 // Disable SSL, since the add-on handles that
 config.https = null;
