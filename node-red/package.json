@@ -10,7 +10,7 @@
     "start": "node $NODE_OPTIONS node_modules/node-red/red.js"
   },
   "dependencies": {
-    "bcryptjs": "3.0.2",
+    "bcryptjs": "3.0.3",
     "js-yaml": "4.1.0",
     "node-red": "4.1.1",
     "node-red-contrib-bigtimer": "2.8.6",
